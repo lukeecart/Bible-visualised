@@ -1,0 +1,15 @@
+
+:root {
+    --yellow: #F0BD67;
+    --darkgrey: #383338;
+    --lightergrey: #938893; 
+    --bg: #F2F2F2;
+    --nav-bar: #FFFFFF;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', san-serif;
+    background: var(--bg);
+}
+
