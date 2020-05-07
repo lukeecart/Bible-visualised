@@ -8,6 +8,7 @@
     --nav-bar: #FFFFFF;
     --side-margin: 4.5em;
     --mobile-side-margin: 2.5em;
+    --lightpurple: #938893;
 }
 body{
     margin: 0; 
@@ -122,8 +123,8 @@ footer a {
         transition: all 1s ease-out;
     }
     .navbar-nav.open {
-        clip-path: circle(1000px at 100% -10%);
-        -webkit-clip-path: circle(1000px at 100% -10%);
+        clip-path: circle(1400px at 100% -10%);
+        -webkit-clip-path: circle(1400px at 100% -10%);
     }
     .hamburger.twist{
         transform: rotate(90deg);

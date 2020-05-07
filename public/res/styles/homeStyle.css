@@ -1,4 +1,5 @@
 /*Header styles*/ 
+
 header {
     --side-margin: 9em;
     padding-top: 10px;
@@ -7,15 +8,17 @@ header {
     align-items: center;
     padding: 30px var(--side-margin);
 }
+
 .titles h1{
     text-align: left;
-    margin: 0px;
     font-size: 4rem;
     margin: 5px 0;
 }
 
 img {
-    width: 35vw;
+    width: 100%;
+    min-width: 275px;
+    max-width: 365px;
 }
 
 .explore {
@@ -41,8 +44,20 @@ img {
 }
 
 /*Main Styles*/
-
-
+main {
+    --side-margin: 9em;
+    background: var(--nav-bar);
+    padding: 60px;
+    margin: 50px var(--side-margin);
+    border-radius: 10px;
+}
+main h2 {
+    font-size: 3rem;
+    margin: 5px 0;
+}
+main h3{
+    color: var(--lightpurple);
+}
 @media screen and (max-width: 768px){
     header{
         --mobile-side-margin: 5em;
@@ -58,6 +73,14 @@ img {
     } 
     img {
         margin: 0;
-        width: 80%;
+        min-width: 240px;
+    }
+
+    /*Main responsive*/
+    main {
+        --mobile-side-margin: 5em;
+        background: var(--nav-bar);
+        padding: 20px;
+        margin: 70px var(--mobile-side-margin);
     }
 }
