@@ -86,7 +86,7 @@ footer a {
 @media screen and (max-width: 768px){
     /*Header responsive*/
     .logo {
-        margin-left: var(--mobile-side-margin) ;
+        margin: 0 calc(var(--mobile-side-margin) - 20px);
     }
     .line {
         width: 30px;

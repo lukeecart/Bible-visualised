@@ -1,3 +1,11 @@
+const hamburger = document.querySelector('.hamburger')
+const navLinks = document.querySelector('.navbar-nav');
+const links = document.querySelectorAll('.nav-item');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle("open")
+    hamburger.classList.toggle("twist")
+})
 function init() {
   var $ = go.GraphObject.make;  // for conciseness in defining templates
   // create Diagram
