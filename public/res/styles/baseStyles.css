@@ -71,7 +71,7 @@ li a{
         margin: 5px;
     } 
     .navbar {
-        position: fixed;
+        position: sticky;
         top: 0;
     }
     .hamburger {
@@ -89,14 +89,14 @@ li a{
         height: 100%;
         width: 100%;
         flex-direction: column;
-        clip-path: circle(100px at 90% -10%) ;
-        -webkit-clip-path: circle(100px at 90% -20%);
+        clip-path: circle(100px at 100% -10%) ;
+        -webkit-clip-path: circle(100px at 100% -20%);
         transition: all 1s ease-out;
     }
 
     .navbar-nav.open {
-        clip-path: circle(1000px at 90% -10%);
-        -webkit-clip-path: circle(1000px at 90% -10%);
+        clip-path: circle(1000px at 100% -10%);
+        -webkit-clip-path: circle(1000px at 100% -10%);
     }
     .hamburger.twist{
         transform: rotate(90deg);
