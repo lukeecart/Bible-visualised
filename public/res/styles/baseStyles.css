@@ -105,8 +105,12 @@ li a{
         color: var(--darkgrey);
         font-weight: bolder;
     }
-
 } 
+
+/*Main styles*/
+main {
+    margin: 0 var(--side-margin);
+}
 
 /*Footer styles*/
 footer{
@@ -114,4 +118,5 @@ footer{
     justify-content: space-evenly;
     background: var(--darkgrey);
     color: var(--lightergrey);
+    font-size: 0.75em;
 }
