@@ -1,14 +1,19 @@
 /*Header styles*/ 
 
 header {
-    --side-margin: 9em;
-    padding-top: 10px;
+    margin: 40px calc(var(--side-margin) + 40px);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 30px var(--side-margin);
 }
 
+.titles {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
 .titles h1{
     text-align: left;
     font-size: 4rem;
@@ -35,20 +40,19 @@ img {
     text-decoration: none;
     color: var(--darkgrey);
     font-weight: bold;
-    transition: all 0.5s ease-out;
+    transition: all 0.3s ease-out;
 }
 
 .explore:hover {
-    background: var(--darkgrey);
+    background: var(--lightpurple);
     color: var(--bg);
 }
 
 /*Main Styles*/
 main {
-    --side-margin: 9em;
     background: var(--nav-bar);
-    padding: 60px;
-    margin: 50px var(--side-margin);
+    padding: 40px;
+    margin: 40px calc(var(--side-margin) - 40px);
     border-radius: 10px;
 }
 main h2 {
@@ -56,20 +60,29 @@ main h2 {
     margin: 5px 0;
 }
 main h3{
+    font-size: 1.5rem;
+    margin: 5px 0;
     color: var(--lightpurple);
 }
+
+main p {
+    font-size: 1rem;
+}
+
+
+/*RESPONSIVE DESIGN*/
 @media screen and (max-width: 768px){
     header{
-        --mobile-side-margin: 5em;
-        padding: 30px var(--mobile-side-margin);
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
+        margin: var(--mobile-side-margin);
     } 
+    .titles {
+        align-items: center;
+    }
     .titles h1{
-        text-align: left;
-        margin: 0px;
-        font-size: 10vw;
+        font-size: 3rem;
     } 
     img {
         margin: 0;
@@ -78,9 +91,15 @@ main h3{
 
     /*Main responsive*/
     main {
-        --mobile-side-margin: 5em;
         background: var(--nav-bar);
         padding: 20px;
-        margin: 70px var(--mobile-side-margin);
+        margin: 70px calc(var(--mobile-side-margin) - 20px);
+    }
+    main h2 {
+        font-size: 2rem;
+    }
+    main h3 {
+        font-size: 1.5rem;
+        font-weight: normal;
     }
 }

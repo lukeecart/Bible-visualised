@@ -6,8 +6,8 @@
     --lightergrey: #938893; 
     --bg: #F2F2F2;
     --nav-bar: #FFFFFF;
-    --side-margin: 4.5em;
-    --mobile-side-margin: 2.5em;
+    --side-margin: 6.5em;
+    --mobile-side-margin: 3.5em;
     --lightpurple: #938893;
 }
 body{
@@ -15,7 +15,7 @@ body{
     padding: 0;
     font-family: 'Montserrat', san-serif;
     background: var(--bg);
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
     box-sizing: border-box;
 }
@@ -65,11 +65,6 @@ li a{
 .selected {
     font-weight: bold;
     color: var(--yellow);
-}
-
-/*Main styles*/
-main {
-    margin: 0 var(--side-margin);
 }
 
 /*Footer styles*/
@@ -148,8 +143,4 @@ footer a {
         font-size: 1.5em;
     }
 
-    /*Main Responsive*/
-    main {
-        margin: 0 var(--mobile-side-margin);
-    }
 } 
