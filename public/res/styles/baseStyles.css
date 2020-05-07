@@ -1,11 +1,13 @@
 
 :root {
     --yellow: #F0BD67;
+    --pale-yellow: #F8D69E;
     --darkgrey: #383338;
     --lightergrey: #938893; 
     --bg: #F2F2F2;
     --nav-bar: #FFFFFF;
     --side-margin: 4.5em;
+    --mobile-side-margin: 2.5em;
 }
 body{
     margin: 0; 
@@ -14,6 +16,7 @@ body{
     background: var(--bg);
     font-size: 18px;
     text-align: center;
+    box-sizing: border-box;
 }
 /*Header styles*/
 ul {
@@ -63,7 +66,32 @@ li a{
     color: var(--yellow);
 }
 
+/*Main styles*/
+main {
+    margin: 0 var(--side-margin);
+}
+
+/*Footer styles*/
+footer{
+    display: flex;
+    justify-content: space-evenly;
+    background: var(--darkgrey);
+    color: var(--lightergrey);
+    font-size: 0.75em;
+}
+footer a {
+    color: var(--yellow);
+}
+
+
+
+/*Responsive Design*/
+
 @media screen and (max-width: 768px){
+    /*Header responsive*/
+    .logo {
+        margin-left: var(--mobile-side-margin) ;
+    }
     .line {
         width: 30px;
         height: 3px;
@@ -93,7 +121,6 @@ li a{
         -webkit-clip-path: circle(100px at 100% -20%);
         transition: all 1s ease-out;
     }
-
     .navbar-nav.open {
         clip-path: circle(1000px at 100% -10%);
         -webkit-clip-path: circle(1000px at 100% -10%);
@@ -102,21 +129,26 @@ li a{
         transform: rotate(90deg);
     }
     .selected {
-        color: var(--darkgrey);
+        color: var(--bg);
         font-weight: bolder;
     }
+    .selected::before {
+        content: '';
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 10px 0 10px 15px;
+        border-color: transparent  transparent transparent var(--bg);  
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+    .nav-item {
+        font-size: 1.5em;
+    }
+
+    /*Main Responsive*/
+    main {
+        margin: 0 var(--mobile-side-margin);
+    }
 } 
-
-/*Main styles*/
-main {
-    margin: 0 var(--side-margin);
-}
-
-/*Footer styles*/
-footer{
-    display: flex;
-    justify-content: space-evenly;
-    background: var(--darkgrey);
-    color: var(--lightergrey);
-    font-size: 0.75em;
-}
