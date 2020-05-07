@@ -27,7 +27,6 @@ ul {
     margin-left: var(--side-margin) ;
     justify-content: center;
     align-items: center;  
-    margin-right: 20px;
 }
 .logo img {
     width: 100%;
@@ -47,6 +46,7 @@ ul {
     justify-content: space-evenly;
     align-items: center;
     height: 100%;
+    width: 50%;
     margin-left: auto;
     margin-right: var(--side-margin) ;
 }
@@ -63,4 +63,55 @@ li a{
     color: var(--yellow);
 }
 
+@media screen and (max-width: 768px){
+    .line {
+        width: 30px;
+        height: 3px;
+        background: var(--darkgrey);
+        margin: 5px;
+    } 
+    .navbar {
+        position: fixed;
+        top: 0;
+    }
+    .hamburger {
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 30%;
+        transform: translate(-50%, -5%);
+        z-index: 2;
+        transition: all 1s ease;
+    }
+    .navbar-nav {
+        position: fixed;
+        background: #F0BD67;
+        height: 100vh;
+        width: 100vw;
+        flex-direction: column;
+        clip-path: circle(100px at 90% -10%) ;
+        -webkit-clip-path: circle(100px at 90% -20%);
+        transition: all 1s ease-out;
+    }
 
+    .navbar-nav.open {
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+    }
+    .hamburger.twist{
+        transform: rotate(90deg);
+    }
+    .selected {
+        color: var(--darkgrey);
+        font-weight: bolder;
+    }
+
+} 
+
+/*Footer styles*/
+footer{
+    display: flex;
+    justify-content: space-evenly;
+    background: var(--darkgrey);
+    color: var(--lightergrey);
+}
