@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Genogram</title>
+  <meta name="description" content="A genogram is a family tree diagram for visualizing hereditary patterns." />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src = "https://cdn.jsdelivr.net/npm/gojs@2.1/release/go.js" type="text/javascript"></script>
+  <script src ="oldindex.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="init()">
+<!--https://www.youtube.com/watch?v=dsC7Tf5mDO8-->
+	<header>
+		<h3>Bible Family Tree</h3>
+		<div class ="search">
+			<input id="mySearch" type="text" name ="person" autocomplete="off" onkeypress="if (event.keyCode === 13) searchDiagram()" placeholder="Search e.g. Moses"/>
+		</div>
+		<div class="buttons">
+			<a id="toFit">Fit to page</a>
+		</div>
+	</header>
+	<div id="myDiagramDiv"></div>
+	<footer>
+		<p>&copy Luke Cartwright 2019 using go.js learn more <a href="https://gojs.net/latest/index.html">here</a> If you'd like to help go <a href ="https://github.com/lukeecart/FamilyTree">here</a></p>
+	</footer>
+	<script src = "familyTreeData.js"></script>
+	<script src = "search.js"></script>
+</body>
+</html>
