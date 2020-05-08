@@ -1,0 +1,49 @@
+h1 {
+    font-size: 4rem;
+}
+header {
+    display: flex;
+    margin: 70px var(--side-margin) 30px var(--side-margin) ;
+    justify-content: space-evenly;
+    align-content: center;
+    margin-bottom: 30px;
+}
+main {
+    display: flex ;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background: var(--nav-bar);
+    margin: 20px var(--side-margin);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+main h3 {
+    margin: 10px;
+    font-size: 1.5rem;
+    color: var(--lightpurple);
+    font-weight: normal;
+}
+
+@media screen and (max-width: 768px){
+    h1 {
+        font-size: 3rem;
+    }
+    main h3 {
+        font-size: 1.2rem;
+    }
+    main p {
+        font-size: 0.8rem;
+    }
+    header {
+        flex-direction: column;
+        margin: 35px var(--mobile-side-margin) 15px var(--mobile-side-margin) ;
+        justify-content: center;
+        align-items: center;
+    }
+    main { 
+        margin: 15px calc(var(--mobile-side-margin) - 20px);
+        padding: 20px;
+    }
+}

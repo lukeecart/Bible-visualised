@@ -1,5 +1,10 @@
 h1 {
-    font-size: 3rem;
+    font-size: 4rem;
+}
+header {
+    display: flex;
+    margin: 70px var(--side-margin) 30px var(--side-margin) ;
+    justify-content: space-evenly;
 }
 main {
     display: flex ;
@@ -11,6 +16,16 @@ main {
     padding: 20px;
     border-radius: 15px;
 }
+@keyframes fadeIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+  }
 .card {
     flex-basis: 25%;
     margin: 20px;
@@ -24,6 +39,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: 1s ease-out 0s 1 fadeIn;
 }
 .card img {
     width: 50px;
@@ -51,11 +67,31 @@ main {
     color: var(--bg);
 }
 
+.card .unavailable{
+    background: rgb(236, 89, 89);
+    cursor: not-allowed;
+}
+
 @media screen and (max-width: 768px){
+    h1 {
+        font-size: 2rem;
+    }
+    header {
+        flex-direction: column;
+        margin: 35px var(--mobile-side-margin) 15px var(--mobile-side-margin) ;
+        justify-content: center;
+        align-items: center;
+    }
     main { 
-        margin: 15px var(--mobile-side-margin);
+        margin: 15px calc(var(--mobile-side-margin) - 20px);
+        padding: 10px;
     }
     .card {
         flex-basis: 50%; 
+        margin: 10px;
+        padding: 10px;
     }  
+    .card h4 {
+        margin: 5px;
+    }
 }
