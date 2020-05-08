@@ -1,3 +1,10 @@
+body {
+	display: flex;
+
+}
+nav ,footer {
+	flex: none;
+}
 nav {
 	display: inline-block;
 	width: 100%;
@@ -39,6 +46,7 @@ nav {
 }
 
 main {
+	flex: auto;
 	display: flex;
 	height: 70%;
 	padding: 5px;

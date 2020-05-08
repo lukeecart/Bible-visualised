@@ -107,7 +107,18 @@ function init() {
 
     // create the model for the family tree
     myDiagram.model = new go.TreeModel(nodeDataArray);
+  function getGenealogy(node){
+    let parent = node.findTreeParentNode();
+    node.findLinksInto().each(function(l) { l.isHighlighted = true; });
+    node.findNodesInto().each(function(n) { n.isHighlighted = true; });
+    if (parent){
+      getGenealogy(parent)
+    } else {
+      return
+    }
+  }
 
+  /*RESIZING CONTROLS */
   // Double click to zoom out
   document.getElementById('toFit').addEventListener('click', function() {
     myDiagram.requestUpdate();
@@ -122,16 +133,5 @@ function init() {
   })
 
   myDiagram.isReadOnly = true;
-
-  function getGenealogy(node){
-    let parent = node.findTreeParentNode();
-    node.findLinksInto().each(function(l) { l.isHighlighted = true; });
-    node.findNodesInto().each(function(n) { n.isHighlighted = true; });
-    if (parent){
-      getGenealogy(parent)
-    } else {
-      return
-    }
-  }
 }// END OF INIT
 
