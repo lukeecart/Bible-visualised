@@ -110,6 +110,7 @@ function init() {
 
   // Double click to zoom out
   document.getElementById('toFit').addEventListener('click', function() {
+    myDiagram.requestUpdate();
     myDiagram.zoomToFit();
   });
   window.addEventListener('resize',() => {

@@ -58,7 +58,7 @@ footer {
 
 @media screen and (max-width: 768px){
 	#toFit {
-		font-size: 0.5rem;
+		font-size: 0.75rem;
 	}
 	#mySearch {
 		font-size: 0.75rem;
