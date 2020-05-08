@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./res/styles/baseStyles.css">
-    <link rel="stylesheet" href="./res/styles/homeStyle.css">
+    <link rel="stylesheet" href="./styles/baseStyles.css">
+    <link rel="stylesheet" href="./styles/homeStyle.css">
     <link rel="icon" sizes="192x192" href="./res/Logo.svg">
-    <script defer src="app.js"></script>
+    <script defer src="./js/overlay.js"></script>
 </head>
 <body>
     <nav class="navbar">
-        <a href="#" class="logo"><img src="./res/Logo.svg" alt="Logo"/></a>   
+        <a href="" class="logo"><img  src="./res/Logo.svg" alt="Logo"/></a>   
         <div class="hamburger">
             <div class="line"></div>
             <div class="line"></div>
@@ -24,16 +24,16 @@
             <li class="nav-item"><a href="./projects">Projects</a></li>
         </ul>
     </nav>
-
+    <div class="container">
     <header>
-        <section class="titles">
+        <div class="titles">
             <h1 class="header-item">Visualise.</h1>
             <h1 class="header-item">Study.</h1>
             <h1 class="header-item">Learn.</h1>
             <a href="./projects"class="explore">
                 Explore Projects
             </a>   
-        </section>
+        </div>
         <img src="./res/Studying.svg" alt="Studying"/>
     </header>
 
@@ -46,6 +46,7 @@
             family tree data from the bible, and a timeline of the events of the bible.
             The data has been collected from multiple sources.</p>
     </main>
+</div>
     <footer>
         <p>&copy Luke Cartwright 2020</p>
         <p>Icons by <a target="_blank" href="https://icons8.com">Icons8</a></p>
