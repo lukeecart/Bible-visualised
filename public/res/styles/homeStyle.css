@@ -35,7 +35,7 @@ img {
     justify-content: center;
     align-items: center;
     margin: 30px 0;
-    box-shadow: 0 10px 40px rgba(18,17,17,.25);
+    box-shadow: var(--shadow);
     cursor: pointer;
     text-decoration: none;
     color: var(--darkgrey);

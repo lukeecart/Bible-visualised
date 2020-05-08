@@ -1,0 +1,61 @@
+h1 {
+    font-size: 3rem;
+}
+main {
+    display: flex ;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background: var(--nav-bar);
+    margin: 20px var(--side-margin);
+    padding: 20px;
+    border-radius: 15px;
+}
+.card {
+    flex-basis: 25%;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid var(--lightpurple);
+    background: var(--darkgrey);
+    box-shadow: var(--shadow);
+    color: var(--nav-bar);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card img {
+    width: 50px;
+}
+
+.card a {
+    background: var(--yellow);
+    border-radius: 30px;
+    width: 80px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--darkgrey);
+    font-weight: bold;
+    transition: all 0.3s ease-out;
+}
+
+.card a:hover {
+    background: var(--lightpurple);
+    color: var(--bg);
+}
+
+@media screen and (max-width: 768px){
+    main { 
+        margin: 15px var(--mobile-side-margin);
+    }
+    .card {
+        flex-basis: 50%; 
+    }  
+}

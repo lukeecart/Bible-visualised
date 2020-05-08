@@ -1,9 +1,9 @@
+/*https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+don't do anything for headr and footer but fill out the rest
+*/
 body {
 	display: flex;
-
-}
-nav ,footer {
-	flex: none;
+	flex-direction: column;
 }
 nav {
 	display: inline-block;
@@ -23,7 +23,7 @@ nav {
 	align-items: center;
 	padding: 8px 0;
 	background-color: var(--yellow);
-	box-shadow: 0 10px 30px rgba(18,17,17,.25);
+	box-shadow: var(--shadow);
 	z-index: 3;
 }
 #mySearch {
@@ -46,7 +46,8 @@ nav {
 }
 
 main {
-	flex: auto;
+	flex: 1;
+	border: 1px solid red;
 	display: flex;
 	height: 70%;
 	padding: 5px;
@@ -55,12 +56,9 @@ main {
 
 #myDiagramDiv {
 	flex: 1;
-	position: relative;
 }
 
 footer {
-	position: absolute;
-	bottom: 0;
 	width: 100%;
 }
 
@@ -70,6 +68,9 @@ footer {
 	}
 	#mySearch {
 		font-size: 0.75rem;
+	}
+	footer {
+		font-size: 0.5rem;
 	}
 }
 
