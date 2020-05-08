@@ -1,0 +1,67 @@
+nav {
+	display: inline-block;
+	width: 100%;
+	position: sticky;
+	z-index: 4;
+}
+.navbar {
+	z-index: 3;
+	box-shadow: none;
+}
+.tools {
+	align-self: flex-end;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 8px 0;
+	background-color: var(--yellow);
+	box-shadow: 0 10px 30px rgba(18,17,17,.25);
+	z-index: 3;
+}
+#mySearch {
+	position: relative;
+	border: none;
+	border-radius: 15px;
+	padding-left: 15px;
+	height: 30px;
+	background-color: #fff;
+	z-index: 2;
+}
+
+#toFit {
+	border-radius: 15px;
+	padding: 5px;
+	background-color: var(--lightergrey);
+	color: #fff;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+main {
+	display: flex;
+	height: 70%;
+	padding: 5px;
+	margin-top: 5px;
+}
+
+#myDiagramDiv {
+	flex: 1;
+	position: relative;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+@media screen and (max-width: 768px){
+	#toFit {
+		font-size: 0.5rem;
+	}
+	#mySearch {
+		font-size: 0.75rem;
+	}
+}
+

@@ -6,6 +6,7 @@ hamburger.addEventListener('click', () => {
     navLinks.classList.toggle("open")
     hamburger.classList.toggle("twist")
 })
+
 function init() {
   var $ = go.GraphObject.make;  // for conciseness in defining templates
   // create Diagram
@@ -111,9 +112,14 @@ function init() {
   document.getElementById('toFit').addEventListener('click', function() {
     myDiagram.zoomToFit();
   });
-  window.addEventListener('resize', () =>{
+  window.addEventListener('resize',() => {
+    let div = myDiagram.div;
+    div.style.width = `${screen.availWidth}px`;
+    console.log(screen.availWidth ) 
+    myDiagram.requestUpdate();
     myDiagram.zoomToFit();
-  });
+  })
+
   myDiagram.isReadOnly = true;
 
   function getGenealogy(node){
