@@ -35,11 +35,15 @@ function init() {
   function tooltipTextConverter(person) {
     var str = "";
     str += "Name: " + person.name;
-    if (person.mother!== "") str += "\nMother: " + person.mother;
-    if (person.partners!== "") str += `\npartner(s): ${person.partners}`;
-    if (person.memberOf!=="") str += `\nTribe: ${person.memberOf}`;
-
-    return str;
+    const firstMention = person.verses.split(",")[0]
+    const partners = person.partners.split(",");
+    if (person.mother!== "") str += "\nMother: " + nodeDataArray.find(x => x.key === person.mother).name;
+    if (person.partners!== "") {
+      str += `\nPartner(s): `;
+      partners.forEach(partner => str += `${nodeDataArray.find(x => x.key === partner).name}, `);
+    }
+    if (person.verses!=="") str += "\nFirst Mention: " + firstMention;
+    return str
   }
 
   // define tooltips for nodes -- Hovering element
