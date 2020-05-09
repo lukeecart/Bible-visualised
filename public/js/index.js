@@ -125,13 +125,11 @@ function init() {
     myDiagram.requestUpdate();
     myDiagram.zoomToFit();
   });
-  window.addEventListener('resize',() => {
-    let div = myDiagram.div;
-    div.style.width = `${screen.availWidth}px`;
-    console.log(screen.availWidth ) 
-    myDiagram.requestUpdate();
-    myDiagram.zoomToFit();
-  })
+  // window.addEventListener('resize',() => {
+  //   let div = myDiagram.div;
+  //   div.style.width = `${screen.availWidth}px`;
+  //   myDiagram.requestUpdate();
+  // })
 
   myDiagram.isReadOnly = true;
 }// END OF INIT
