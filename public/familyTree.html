@@ -30,7 +30,10 @@
 		</ul>
 	</section>
 	<div class="tools">
-		<input id="mySearch" type="text" name ="person" autocomplete="off" onkeypress="if (event.keyCode === 13) searchDiagram()" placeholder="Search e.g. Moses"/>
+		<div class="resultPanel">
+			<input id="mySearch" type="text" name ="person" autocomplete="off" onkeypress="if (event.keyCode === 13) searchDiagram()" placeholder="Search e.g. Moses"/>
+			<p id ="output">No results</p>
+		</div>
 		<a id="toFit">Fit to page</a>
 	</div>
 	</nav>

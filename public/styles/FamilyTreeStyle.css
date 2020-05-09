@@ -36,6 +36,17 @@ nav {
 	z-index: 2;
 }
 
+.resultPanel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#output{
+	display: none;
+	margin-left: 20px;
+	font-size: 0.75rem;
+}
+
 #toFit {
 	border-radius: 15px;
 	padding: 5px;

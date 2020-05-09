@@ -35,9 +35,9 @@ function init() {
   function tooltipTextConverter(person) {
     var str = "";
     str += "Name: " + person.name;
-    if (person.mother!== undefined) str += "\nMother: " + person.mother;
-    if (person.wife!== undefined) str += "\nWife: " + person.wife;
-    if (person.death!== undefined) str += "\nAge at Death: " + person.death;
+    if (person.mother!== "") str += "\nMother: " + person.mother;
+    if (person.partners!== "") str += `\npartner(s): ${person.partners}`;
+    if (person.memberOf!=="") str += `\nTribe: ${person.memberOf}`;
 
     return str;
   }
