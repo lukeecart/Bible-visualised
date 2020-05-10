@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Genogram</title>
+  <title>Bible Family Tree</title>
   <meta name="description" content="A genogram is a family tree diagram for visualizing hereditary patterns." />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src = "https://cdn.jsdelivr.net/npm/gojs@2.1/release/go.js" type="text/javascript"></script>
@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles/baseStyles.css">
   <link rel="stylesheet" href="./styles/FamilyTreeStyle.css">
-  <link rel="stylesheet" href="./js/overlay.js">
+  <link href="./js/overlay.js">
 </head>
 <body onload="init()">
 <!--https://www.youtube.com/watch?v=dsC7Tf5mDO8-->
@@ -32,7 +32,19 @@
 	<div class="tools">
 		<div class="resultPanel">
 			<input id="mySearch" type="text" name ="person" autocomplete="off" onkeypress="if (event.keyCode === 13) searchDiagram()" placeholder="Search e.g. Moses"/>
-			<p id ="output">No results</p>
+			<div class="resultOutput">
+				<a id ="left">
+					<svg width="19" height="30" viewBox="0 0 9 20" fill="none" xmlns="http://www.w3.org/2000/svg" >
+						<path d="M2 10L6.5 7.40192L6.5 12.5981L2 10Z" fill="white"/>
+					</svg>
+				</a>	
+					<p id ="numOfResults">No results</p>
+				<a id = "right">
+					<svg width="19" height="30" viewBox="0 0 9 20" fill="none" xmlns="http://www.w3.org/2000/svg" >
+						<path d="M7 10L2.5 12.5981L2.5 7.40192L7 10Z" fill="white"/>
+					</svg>
+				</a>	
+			</div>
 		</div>
 		<a id="toFit">Fit to page</a>
 	</div>
