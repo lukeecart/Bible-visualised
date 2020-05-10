@@ -8,6 +8,15 @@ hamburger.addEventListener('click', () => {
 })
 
 function init() {
+  var myVar;
+		function myFunction() {
+		  myVar = setTimeout(showPage, 2000);
+		}
+		function showPage() {
+		  document.querySelector(".lds-ellipsis").style.display = "none";
+		  document.getElementById("myDiagramDiv").style.display = "block";
+		}
+    myFunction()
   var $ = go.GraphObject.make;  // for conciseness in defining templates
   // create Diagram
   myDiagram =
@@ -35,14 +44,17 @@ function init() {
   function tooltipTextConverter(person) {
     var str = "";
     str += "Name: " + person.name;
-    const firstMention = person.verses.split(",")[0]
     const partners = person.partners.split(",");
+    const children = person.children.split(",");
     if (person.mother!== "") str += "\nMother: " + nodeDataArray.find(x => x.key === person.mother).name;
     if (person.partners!== "") {
       str += `\nPartner(s): `;
       partners.forEach(partner => str += `${nodeDataArray.find(x => x.key === partner).name}, `);
     }
-    if (person.verses!=="") str += "\nFirst Mention: " + firstMention;
+    if (person.partners!== "") {
+      str += `\nChildren: `;
+      children.forEach(child => str += `${nodeDataArray.find(x => x.key === child).name}, `);
+    }
     return str
   }
 
@@ -87,7 +99,6 @@ function init() {
         },
         new go.Binding("fill", "gender", genderBrushConverter),
         new go.Binding("fill", "tribe", function(v) { return v ? isTribe : "blue"; }),
-        new go.Binding("fill", "kingOfIsrael", function(k) { return k ? kingOfIsrael : kingOfJudah; }),
         new go.Binding("stroke", "isHighlighted", function(h) {return h ? "yellow" : "#11998e" }).ofObject(),
         new go.Binding("strokeWidth", "isHighlighted", function(w) {return w ? 10 : 3 }).ofObject(),
       ),
