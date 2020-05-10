@@ -10,7 +10,7 @@ hamburger.addEventListener('click', () => {
 function init() {
   var myVar;
 		function myFunction() {
-		  myVar = setTimeout(showPage, 2000);
+		  myVar = setTimeout(showPage, 200);
 		}
 		function showPage() {
 		  document.querySelector(".lds-ellipsis").style.display = "none";
