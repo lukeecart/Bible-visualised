@@ -27303,7 +27303,7 @@ const nodeDataArray = [
    "key": "paul_2479",
    "displayTitle": "Paul",
    "name": "Paul",
-   "Also Called": "Saul,Mercurius",
+   "Also Called": "Saul",
    "gender": "Male",
    "memberOf": "",
    "verseCount": 179,

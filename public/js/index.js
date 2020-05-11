@@ -43,6 +43,9 @@ function init() {
   function tooltipTextConverter(person) {
     var str = "";
     str += "Name: " + person.name;
+    if (person["Also Called"] !== ""){
+      str += `\nAlternative Name: ${person["Also Called"]}`;
+    }
     const partners = person.partners.split(",");
     if (person.mother!== "") str += "\nMother: " + nodeDataArray.find(x => x.key === person.mother).name;
     if (person.partners!== "") {
@@ -52,6 +55,7 @@ function init() {
     if (person.verseCount!==""){
       str += `\nVerse Count: ${person.verseCount}`;
     }
+
     return str
   }
 

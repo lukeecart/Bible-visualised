@@ -18,11 +18,12 @@ function searchDiagram() {
     if (input.value) {
       var regex = new RegExp(input.value[0].toUpperCase() +  
       input.value.toLowerCase().slice(1));
-      var results = myDiagram.findNodesByExample({ name: regex });
-      myDiagram.highlightCollection(results);
+      var results = myDiagram.findNodesByExample({ "name": regex });
+      var altNamesResults = myDiagram.findNodesByExample({"Also Called": regex})
       // try to center the diagram at the first node that was found
       myDiagram.scale = 1;
-      if (results.count >= 1){ 
+      if (results.count >= 1){
+        myDiagram.highlightCollection(results); 
         myDiagram.centerRect(results.first().actualBounds);
         FullResults = [];
         resultIndex = 0;
@@ -31,11 +32,23 @@ function searchDiagram() {
           var item = results.value;
           FullResults.push(item)
         }
-        console.log(FullResults[0].actualBounds)
         resultOutput.classList.add('visible')
         displayArrows(resultIndex, results.count)
         numOfResults.innerHTML = `${resultIndex+1} of ${results.count}`
-
+      }
+      else if (altNamesResults.count >=1){
+        myDiagram.highlightCollection(altNamesResults);
+        myDiagram.centerRect(altNamesResults.first().actualBounds);
+        FullResults = [];
+        resultIndex = 0;
+        FullResults.push(altNamesResults.first())
+        while (altNamesResults.next()) {
+          var item = altNamesResults.value;
+          FullResults.push(item)
+        }
+        resultOutput.classList.add('visible')
+        displayArrows(resultIndex, altNamesResults.count)
+        numOfResults.innerHTML = `${resultIndex+1} of ${altNamesResults.count}`
       }
       else {
         console.log('NO RESULTS');
