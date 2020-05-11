@@ -157,6 +157,9 @@ footer {
 }
 
 @media screen and (max-width: 768px){
+	#toFit:hover .tooltip {
+		display: none
+	}
 	#mySearch {
 		font-size: 0.75rem;
 	}
