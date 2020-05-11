@@ -10,6 +10,7 @@
     --mobile-side-margin: 3.5em;
     --lightpurple: #938893;
     --shadow: 0 10px 30px rgba(18,17,17,.25);
+    --blue: #679AF0
 }
 body{
     margin: 0; 
@@ -125,8 +126,8 @@ footer a {
         height: 100%;
         width: 100%;
         flex-direction: column;
-        clip-path: circle(100px at 100% -20%) ;
-        -webkit-clip-path: circle(100px at 100% -20%);
+        clip-path: circle(10px at 100% -30%) ;
+        -webkit-clip-path: circle(10px at 100% -30%);
         transition: all 1s ease-out;
     }
     .navbar-nav.open {

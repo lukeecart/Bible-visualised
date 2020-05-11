@@ -19,7 +19,7 @@ nav {
 	align-self: flex-end;
 	width: 100%;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	align-items: center;
 	padding: 8px 0;
 	background-color: var(--yellow);
@@ -34,6 +34,9 @@ nav {
 	height: 30px;
 	background-color: #fff;
 	z-index: 2;
+	margin: 0 5px;
+	flex: 1;
+	
 }
 
 .resultPanel {
@@ -46,10 +49,11 @@ nav {
 	display: none;
 }
 .resultOutput.visible{
+	margin-left: 20px;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	min-width: 90px;
+	min-width: 50px;
 }
 #numOfResults {
 	padding: 0 5px;
@@ -77,13 +81,25 @@ nav {
 	transition: all .2s ease-in-out;
 }
 
-#toFit {
+#SearchButton {
+	height: 10px;
+	margin-left: 6px;
 	border-radius: 15px;
-	padding: 5px;
-	background-color: var(--lightergrey);
-	color: #fff;
+	padding: 10px;
+	background-color: var(--blue);
+	color: var(--nav-bar);
+	box-shadow: var(--shadow);
 	font-size: 1rem;
 	cursor: pointer;
+	transition: background .3s ease-in-out, color .3s ease-in-out;
+	display: flex;
+	align-items: center;
+}
+#SearchButton:hover {
+	background: var(--pale-yellow);
+}
+.searchIcon {
+	margin: 3px;
 }
 
 main {
@@ -98,18 +114,58 @@ main {
 	flex: 1;
 }
 
+.buttonsPanel{
+	justify-self: start;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	left: 10px;
+	bottom: 75px;
+	z-index: 3;
+	padding: 6px;
+	background: var(--yellow);
+	width: 50px;
+	min-width: 200px;
+	box-shadow: var(--shadow);
+	border-radius: 5px;
+}
+#toolTitle {
+	color: var(--darkergrey);
+	font-size: 1rem;
+	margin: 8px 0;
+	font-weight: 400;
+}
+#toFit {
+	width: 80px;
+	border-radius: 15px;
+	padding: 5px;
+	border: 3px solid #fff;
+	background: var(--lightergrey) ;
+	color: #fff;
+	font-size: 0.75rem;
+	cursor: pointer;
+	box-shadow: var(--shadow);
+}
+#toFit:hover {
+	transition: background .4s ease-in, color .4s ease-out;
+	background: var(--pale-yellow);
+	color: var(--darkergrey);
+}
+
 footer {
 	width: 100%;
 }
 
 @media screen and (max-width: 768px){
-	#toFit {
-		font-size: 0.75rem;
-	}
 	#mySearch {
 		font-size: 0.75rem;
 	}
 	#numOfResults {
+		font-size: 12px;
+	}
+	#SearchButton {
 		font-size: 12px;
 	}
 	footer {

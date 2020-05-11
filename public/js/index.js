@@ -22,8 +22,7 @@ function init() {
   myDiagram =
     $(go.Diagram, "myDiagramDiv",  // must be the ID of the div
     {
-      initialAutoScale: go.Diagram.Uniform ,
-    //initialContentAlignment: go.Spot.TopCenter,
+      initialDocumentSpot: go.Spot.TopCenter,
       allowCopy: false,
       "toolManager.hoverDelay": 80,
       layout:  // create a TreeLayout for the family tree
@@ -136,7 +135,9 @@ function init() {
   // Double click to zoom out
   document.getElementById('toFit').addEventListener('click', function() {
     myDiagram.requestUpdate();
-    myDiagram.zoomToFit();
+    // myDiagram.zoomToFit();
+    myDiagram.zoomToRect({x: 28675, y: 81, width:15971, height: 6724})
+
   });
   // window.addEventListener('resize',() => {
   //   let div = myDiagram.div;

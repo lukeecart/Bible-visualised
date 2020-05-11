@@ -31,6 +31,7 @@ function searchDiagram() {
           var item = results.value;
           FullResults.push(item)
         }
+        console.log(FullResults[0].actualBounds)
         resultOutput.classList.add('visible')
         displayArrows(resultIndex, results.count)
         numOfResults.innerHTML = `${resultIndex+1} of ${results.count}`
