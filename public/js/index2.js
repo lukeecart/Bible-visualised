@@ -97,7 +97,6 @@ function init() {
 
   myDiagram.linkTemplateMap.add("Marriage",  // for marriage relationships
     $(go.Link,
-      { selectable: false },
       $(go.Shape, { strokeWidth: 2.5, stroke: "#5d8cc1" /* blue */ })
     ));
 
@@ -105,7 +104,7 @@ function init() {
     var str = "";
     str += "Name: " + person.name;
     const partners = person.partners.split(",");
-    if (person.mother !== "") str += "\nMother: " + nodeDataArray.find(x => x.key === person.mother).name;
+    if (person.mother !== "") str += "\nmother: " + nodeDataArray.find(x => x.key === person.mother).name;
     if (person.partners !== "") {
       str += `\nPartner(s): `;
       partners.forEach(partner => str += `${nodeDataArray.find(x => x.key === partner).name}, `);
@@ -127,21 +126,20 @@ function init() {
   //SETTINGS FOR DIAGRAM
   // myDiagram.isReadOnly = true;
 
-  // name: name, gender: sex, mother: "", father: father, partner: husband/wife
+  // name: name, "gender": sex, "mother": "", "father": father, partner: husband/wife
   // NOTE: Remove partner: "" and add multiple partners to an array.
   // NOTE: FOR UNKNOWN PARENTS DO THIS....... 
 
   setupDiagram(myDiagram,
     // nodeDataArray
-  //   [
-  //   { key: "Mum_1", name: "Mum", gender: "Female"},
-  //   { key: "Dad_1", name: "Dad", gender: "Male", partner: ["Mum_1", "Wife_2"]}, 
-  //   { key: "Child_1", name: "Child", gender: "Male", father: "Dad_1", mother: "Mum_1"},
-  //   { key: "Wife_2", name: "Wife_2", gender: "Female", father: "Dad_1", mother: "Mum_1"},
-  //   { key: "Child_2", name: "Child_2", gender: "Female",  father: "Dad_1", mother: "Mum_1"},
-  //   { key: "Child_3", name: "Child_3", gender: "Female", father: "Dad_1", mother: "Mum_1"},
-  //   { key: "Child_4", name: "Child_4", gender: "Female",  father: "Dad_1", mother: "Mum_1"}
-  // ]
+    [
+    { "key": "Grandad_1", "name": "Grandad", "gender": "Male"},
+    { "key": "Mum_1", "name": "Mum", "gender": "Female"},
+    { "key": "Dad_1", "name": "Dad", "gender": "Male", "partner": "Mum_1" , "father" : "Grandad_1"}, 
+    { "key": "Child_1", "name": "Child", "gender": "Male", "father": "Dad_1", "mother": "Mum_1"},
+    { "key": "Child_2", "name": "Child_2", "gender": "Female",  "father": "Dad_1", "mother": "Mum_1"},
+    { "key": "Child_3", "name": "Child_3", "gender": "Female", "father": "Dad_1", "mother": "Mum_1"},
+  ]
   ,
     4 /* focus on this person */);
   console.log("Complete")
@@ -221,6 +219,7 @@ function setupMarriages(diagram) {
           model.addNodeData(mlab);
           // add the marriage link itself, also referring to the label node
           var mdata = { from: key, to: partner, labelKeys: [mlab.key], category: "Marriage" };
+          console.log("mdata = ", mdata)
           model.addLinkData(mdata);
         }
       }
@@ -237,7 +236,7 @@ function setupParents(diagram) {
     var key = data.key;
     var mother = data.mother;
     var father = data.father;
-    if (mother !== undefined && father !== undefined) {
+    if (mother !== undefined || father !== undefined) {
       var link = findMarriage(diagram, mother, father);
       if (link === null) {
         // or warn no known mother or no known father or no known marriage between them
@@ -250,8 +249,9 @@ function setupParents(diagram) {
       myDiagram.model.addLinkData(cdata);
     } else {
       // Missing a parent
-      console.log(data.key, "missing a parent");
+      console.log(data, "missing a parent");
       var cdata = { from: father, to: key };
+      console.log(cdata)
       myDiagram.model.addLinkData(cdata);
     }
   }

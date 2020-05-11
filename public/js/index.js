@@ -45,15 +45,13 @@ function init() {
     var str = "";
     str += "Name: " + person.name;
     const partners = person.partners.split(",");
-    const children = person.children.split(",");
     if (person.mother!== "") str += "\nMother: " + nodeDataArray.find(x => x.key === person.mother).name;
     if (person.partners!== "") {
       str += `\nPartner(s): `;
       partners.forEach(partner => str += `${nodeDataArray.find(x => x.key === partner).name}, `);
     }
-    if (person.partners!== "") {
-      str += `\nChildren: `;
-      children.forEach(child => str += `${nodeDataArray.find(x => x.key === child).name}, `);
+    if (person.verseCount!==""){
+      str += `\nVerse Count: ${person.verseCount}`;
     }
     return str
   }
