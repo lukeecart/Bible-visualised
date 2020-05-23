@@ -10,7 +10,7 @@
     --mobile-side-margin: 3.5em;
     --lightpurple: #938893;
     --shadow: 0 10px 30px rgba(18,17,17,.25);
-    --blue: #679AF0
+    --blue: #679AF0;
 }
 body{
     margin: 0; 
@@ -117,7 +117,7 @@ footer a {
         right: 5%;
         top: 30%;
         transform: translate(-50%, -5%);
-        z-index: 2;
+        z-index: 3;
         transition: all 1s ease;
     }
     .navbar-nav {

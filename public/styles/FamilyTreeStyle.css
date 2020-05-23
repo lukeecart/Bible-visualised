@@ -5,102 +5,7 @@ body {
 	display: flex;
 	flex-direction: column;
 }
-nav {
-	display: inline-block;
-	width: 100%;
-	position: sticky;
-	z-index: 4;
-}
-.navbar {
-	z-index: 3;
-	box-shadow: none;
-}
-.tools {
-	align-self: flex-end;
-	width: 100%;
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	padding: 8px 0;
-	background-color: var(--yellow);
-	box-shadow: var(--shadow);
-	z-index: 3;
-}
-#mySearch {
-	position: relative;
-	border: none;
-	border-radius: 15px;
-	padding-left: 15px;
-	height: 30px;
-	background-color: #fff;
-	z-index: 2;
-	margin: 0 5px;
-	flex: 1;
-	
-}
 
-.resultPanel {
-	flex: 0.5;
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-}
-.resultOutput{
-	display: none;
-}
-.resultOutput.visible{
-	margin-left: 20px;
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	min-width: 50px;
-}
-#numOfResults {
-	padding: 0 5px;
-	margin: 0;
-	min-width: 30px;
-}
-#left, #right {
-	height: 30px;
-	width: 19px;
-	background: '#383338';
-	display: none;
-	
-}
-
-#left :hover {
-	cursor: pointer;
-	background: #383338;
-	border-radius: 5px 0 0 5px;
-	transition: all .2s ease-in-out;
-}
-#right :hover{
-	cursor: pointer;
-	background: #383338;
-	border-radius: 0 5px 5px 0;
-	transition: all .2s ease-in-out;
-}
-
-#SearchButton {
-	height: 10px;
-	margin-left: 6px;
-	border-radius: 15px;
-	padding: 10px;
-	background-color: var(--blue);
-	color: var(--nav-bar);
-	box-shadow: var(--shadow);
-	font-size: 1rem;
-	cursor: pointer;
-	transition: background .3s ease-in-out, color .3s ease-in-out;
-	display: flex;
-	align-items: center;
-}
-#SearchButton:hover {
-	background: var(--pale-yellow);
-}
-.searchIcon {
-	margin: 3px;
-}
 
 main {
 	flex: 1;
@@ -109,8 +14,18 @@ main {
 	height: 70%;
 	padding: 5px;
 	margin-top: 5px;
+	position: relative;
 }
-
+#myOverviewDiv {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    top: 10px;
+    left: 10px;
+    background-color: #f2f2f2;
+    z-index: 3; /*make sure its in front*/
+    border: solid 1px #7986cb;
+  }
 #myDiagramDiv {
 	flex: 1;
 }
