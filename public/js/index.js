@@ -3,32 +3,32 @@ const navLinks = document.querySelector('.navbar-nav');
 const links = document.querySelectorAll('.nav-item');
 
 hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle("open")
-    hamburger.classList.toggle("twist")
+  navLinks.classList.toggle("open")
+  hamburger.classList.toggle("twist")
 })
 
 function init() {
   var myVar;
-		function myFunction() {
-		  myVar = setTimeout(showPage, 200);
-		}
-		function showPage() {
-		  document.querySelector(".lds-ellipsis").style.display = "none";
-		  document.getElementById("myDiagramDiv").style.display = "block";
-		}
-    myFunction()
+  function myFunction() {
+    myVar = setTimeout(showPage, 200);
+  }
+  function showPage() {
+    document.querySelector(".lds-ellipsis").style.display = "none";
+    document.getElementById("myDiagramDiv").style.display = "block";
+  }
+  myFunction()
   var $ = go.GraphObject.make;  // for conciseness in defining templates
   // create Diagram
   myDiagram =
     $(go.Diagram, "myDiagramDiv",  // must be the ID of the div
-    {
-      initialDocumentSpot: go.Spot.TopCenter,
-      allowCopy: false,
-      "toolManager.hoverDelay": 80,
-      layout:  // create a TreeLayout for the family tree
-        $(go.TreeLayout,
-        { angle: 90, nodeSpacing: 10, layerSpacing: 40, layerStyle: go.TreeLayout.LayerUniform })
-    });
+      {
+        initialDocumentSpot: go.Spot.TopCenter,
+        allowCopy: false,
+        "toolManager.hoverDelay": 80,
+        layout:  // create a TreeLayout for the family tree
+          $(go.TreeLayout,
+            { angle: 90, nodeSpacing: 10, layerSpacing: 40, layerStyle: go.TreeLayout.LayerUniform })
+      });
 
   // Colors : male, female
   let male = '#73DBF6';
@@ -43,16 +43,16 @@ function init() {
   function tooltipTextConverter(person) {
     var str = "";
     str += "Name: " + person.name;
-    if (person["Also Called"] !== ""){
+    if (person["Also Called"] !== "") {
       str += `\nAlternative Name: ${person["Also Called"]}`;
     }
     const partners = person.partners.split(",");
-    if (person.mother!== "") str += "\nMother: " + nodeDataArray.find(x => x.key === person.mother).name;
-    if (person.partners!== "") {
+    if (person.mother !== "") str += "\nMother: " + nodeDataArray.find(x => x.key === person.mother).name;
+    if (person.partners !== "") {
       str += `\nPartner(s): `;
       partners.forEach(partner => str += `${nodeDataArray.find(x => x.key === partner).name}, `);
     }
-    if (person.verseCount!==""){
+    if (person.verseCount !== "") {
       str += `\nVerse Count: ${person.verseCount}`;
     }
 
@@ -70,26 +70,27 @@ function init() {
           margin: 5
         },
         new go.Binding("text", "", tooltipTextConverter))
-  );
+    );
 
-    // define Converters to be used for Bindings
+  // define Converters to be used for Bindings
   function genderBrushConverter(gender) {
     if (gender === "Male") return male;
     if (gender === "Female") return female;
     return "orange";
   }
 
-// replace the default Node template in the nodeTemplateMap
+  // replace the default Node template in the nodeTemplateMap
   // This is the node style
   myDiagram.nodeTemplate =
     $(go.Node, "Auto",
-    { // when the user clicks on a Node, highlight all Links coming into the node
-      click: function(e, node) {
-      var diagram = node.diagram;
-      diagram.clearHighlighteds();
-      getGenealogy(node);
-    },
-      deletable: false, toolTip: tooltiptemplate },
+      { // when the user clicks on a Node, highlight all Links coming into the node
+        click: function (e, node) {
+          var diagram = node.diagram;
+          diagram.clearHighlighteds();
+          getGenealogy(node);
+        },
+        deletable: false, toolTip: tooltiptemplate
+      },
       new go.Binding("text", "name"),
       $(go.Shape, "RoundedRectangle",
         {
@@ -99,9 +100,9 @@ function init() {
           alignment: go.Spot.Center
         },
         new go.Binding("fill", "gender", genderBrushConverter),
-        new go.Binding("fill", "tribe", function(v) { return v ? isTribe : "blue"; }),
-        new go.Binding("stroke", "isHighlighted", function(h) {return h ? "yellow" : "#11998e" }).ofObject(),
-        new go.Binding("strokeWidth", "isHighlighted", function(w) {return w ? 10 : 3 }).ofObject(),
+        new go.Binding("fill", "tribe", function (v) { return v ? isTribe : "blue"; }),
+        new go.Binding("stroke", "isHighlighted", function (h) { return h ? "yellow" : "#11998e" }).ofObject(),
+        new go.Binding("strokeWidth", "isHighlighted", function (w) { return w ? 10 : 3 }).ofObject(),
       ),
       $(go.TextBlock,
         {
@@ -112,23 +113,26 @@ function init() {
         new go.Binding("text", "name"))
     );
 
-    // define the Link template/ style
-    myDiagram.linkTemplate =
-      $(go.Link,  // the whole link panel
-        { routing: go.Link.Orthogonal, corner: 5, selectable: false },
-        $(go.Shape,
-    {strokeWidth: 3, stroke: '#424242' },
-    new go.Binding("stroke", "isHighlighted", function(h) { return h ? familyLink : "black"; }).ofObject(),
-    new go.Binding("strokeWidth", "isHighlighted", function(w) { return w ? 6 : 1; }).ofObject()
-    ));
+  // define the Link template/ style
+  myDiagram.linkTemplate =
+    $(go.Link,  // the whole link panel
+      { routing: go.Link.Orthogonal, corner: 5, selectable: false },
+      $(go.Shape,
+        { strokeWidth: 3, stroke: '#424242' },
+        new go.Binding("stroke", "isHighlighted", function (h) { return h ? familyLink : "black"; }).ofObject(),
+        new go.Binding("strokeWidth", "isHighlighted", function (w) { return w ? 6 : 1; }).ofObject()
+      ));
 
-    // create the model for the family tree
-    myDiagram.model = new go.TreeModel(nodeDataArray);
-  function getGenealogy(node){
+
+  // create the model for the family tree
+  myDiagram.model = new go.TreeModel(nodeDataArray);
+
+
+  function getGenealogy(node) {
     let parent = node.findTreeParentNode();
-    node.findLinksInto().each(function(l) { l.isHighlighted = true; });
-    node.findNodesInto().each(function(n) { n.isHighlighted = true; });
-    if (parent){
+    node.findLinksInto().each(function (l) { l.isHighlighted = true; });
+    node.findNodesInto().each(function (n) { n.isHighlighted = true; });
+    if (parent) {
       getGenealogy(parent)
     } else {
       return
@@ -137,11 +141,10 @@ function init() {
 
   /*RESIZING CONTROLS */
   // Double click to zoom out
-  document.getElementById('toFit').addEventListener('click', function() {
+  document.getElementById('toFit').addEventListener('click', function () {
     myDiagram.requestUpdate();
     // myDiagram.zoomToFit();
-    myDiagram.zoomToRect({x: 28675, y: 81, width:15971, height: 6724})
-
+    myDiagram.zoomToRect({ x: 28675, y: 81, width: 15971, height: 6724 })
   });
   // window.addEventListener('resize',() => {
   //   let div = myDiagram.div;

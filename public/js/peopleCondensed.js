@@ -15842,7 +15842,7 @@ const nodeDataArray = [
  {
    "key": "israel_682",
    "displayTitle": "Jacob (Israel)",
-   "name": "Israel",
+   "name": "Jacob",
    "Also Called": "Israel",
    "gender": "Male",
    "memberOf": "Genealogy of Jesus",
