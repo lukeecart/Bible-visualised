@@ -42,17 +42,25 @@ function init() {
   // {ADD OTHER DATA IF APPLICABLE e.g. REIGN FOR KINGS and Length of judges }
   function tooltipTextConverter(person) {
     var str = "";
-    str += "Name: " + person.name;
-    if (person["Also Called"] !== "") {
+    str += "Name: " + person.displayTitle;
+    if (person["Also Called"]) {
       str += `\nAlternative Name: ${person["Also Called"]}`;
     }
-    const partners = person.partners.split(",");
-    if (person.mother !== "") str += "\nMother: " + nodeDataArray.find(x => x.key === person.mother).name;
-    if (person.partners !== "") {
-      str += `\nPartner(s): `;
-      partners.forEach(partner => str += `${nodeDataArray.find(x => x.key === partner).name}, `);
+    if (person.mother) {
+      nodeDataArray.find(x => x.key === person.mother) ?
+        str += `\nMother: ${nodeDataArray.find(x => x.key === person.mother).name}`
+        : str += `\nMother: ${person.mother}`
     }
-    if (person.verseCount !== "") {
+    const partners = person.partners.split(",");
+    if (person.partners) {
+      str += `\nPartner(s): `;
+      partners.forEach(partner => {
+        nodeDataArray.find(x => x.key === partner) ?
+          str += `${nodeDataArray.find(x => x.key === partner).name}, `
+          : str += `${partner}, `
+      });
+    }
+    if (person.verseCount) {
       str += `\nVerse Count: ${person.verseCount}`;
     }
 
@@ -125,8 +133,7 @@ function init() {
 
 
   // create the model for the family tree
-  myDiagram.model = new go.TreeModel(nodeDataArray);
-
+  myDiagram.model = new go.TreeModel(filteredNames(nodeDataArray));
 
   function getGenealogy(node) {
     let parent = node.findTreeParentNode();
@@ -153,5 +160,13 @@ function init() {
   // })
 
   myDiagram.isReadOnly = true;
+  console.log(JSON.stringify(filteredNames(nodeDataArray)))
 }// END OF INIT
 
+// FILTER NAMES AUTOMATED
+const filteredNames = (namesArray) => {
+  const ListWithNoParentsButHasChildren = namesArray.filter(person => {
+    return !person.parent && nodeDataArray.find(x => x.parent === person.key)
+  })
+  return namesArray.filter(person => ListWithNoParentsButHasChildren.includes(person) || person.parent)
+}
