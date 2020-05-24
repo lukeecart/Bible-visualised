@@ -151,16 +151,10 @@ function init() {
   document.getElementById('toFit').addEventListener('click', function () {
     myDiagram.requestUpdate();
     // myDiagram.zoomToFit();
-    myDiagram.zoomToRect({ x: 28675, y: 81, width: 15971, height: 6724 })
+    myDiagram.zoomToRect({ x: 0, y: 81, width: 15971, height: 6724 })
   });
-  // window.addEventListener('resize',() => {
-  //   let div = myDiagram.div;
-  //   div.style.width = `${screen.availWidth}px`;
-  //   myDiagram.requestUpdate();
-  // })
 
   myDiagram.isReadOnly = true;
-  console.log(JSON.stringify(filteredNames(nodeDataArray)))
 }// END OF INIT
 
 // FILTER NAMES AUTOMATED
