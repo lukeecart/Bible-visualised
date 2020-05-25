@@ -4,6 +4,7 @@ h1 {
 header {
     display: flex;
     margin: 70px var(--side-margin) 30px var(--side-margin) ;
+    justify-content: space-evenly;
     align-content: center;
     margin-bottom: 30px;
 }
