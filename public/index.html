@@ -10,22 +10,16 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/baseStyles.css">
     <link rel="stylesheet" href="./styles/homeStyle.css">
+    <link rel="stylesheet" href="./styles/cookieConsent.css">
     <link rel="icon" sizes="192x192" href="./res/Logo.svg">
     <script defer src="./js/overlay.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140445912-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+    <script defer src="./js/cookieCompliance.js"></script>
 
-        gtag('config', 'UA-140445912-2');
-    </script>
 </head>
 
 <body>
     <nav class="navbar">
-        <a href="" class="logo"><img src="./res/Logo.svg" alt="Logo" /></a>
+        <div class="logo"></a><img src="./res/Logo.svg" alt="Logo" /></div>
         <div class="hamburger">
             <div class="line"></div>
             <div class="line"></div>
@@ -58,13 +52,22 @@
                 I have created this website to showcase some projects such as the <a href="./genealogy"> genealogy of
                     Christ</a> and <a href="./building">the kings of Israel</a> with many more are in the works.
                 The data has been collected from multiple sources.</p>
+
         </main>
+    </div>
+    <div id="myCookieConsent">
+        <div class="consent">
+            <p> This website is using cookies.</p>
+            <a id="cookieButton">Understood</a>
+        </div>
+        <a href="./privacy-policy">More details</a>
     </div>
     <footer>
         <p>&copy Luke Cartwright 2020</p>
         <p>Icons by <a target="_blank" href="https://icons8.com">Icons8</a></p>
         <p><a target="_self" href="./privacy-policy">Privacy Policy</a></p>
     </footer>
+
 </body>
 
 </html>

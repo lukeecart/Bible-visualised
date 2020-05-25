@@ -1,0 +1,9 @@
+main {
+    margin: 0 var(--side-margin);
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        margin: 0 var(--mobile-side-margin)
+    }
+}

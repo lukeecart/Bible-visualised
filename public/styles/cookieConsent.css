@@ -1,0 +1,38 @@
+#myCookieConsent{
+    background: var(--darkgrey);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+}
+#cookieButton{
+    border-radius: 10px;
+    background: var(--yellow);
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.consent {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.classname {
+    -webkit-animation-name: cssAnimation;
+    -webkit-animation-duration:1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: forwards;
+  }
+  @-webkit-keyframes cssAnimation {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
