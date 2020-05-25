@@ -1,6 +1,5 @@
 const consentButton = document.getElementById('cookieButton');
 const cookiesBar = document.getElementById('myCookieConsent');
-localStorage.removeItem('consent')
 if (!localStorage.consent) {
     consentButton.addEventListener('click', () => {
         localStorage.setItem('consent', true);
