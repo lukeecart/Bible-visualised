@@ -22,3 +22,7 @@ main{
     z-index: 3; /*make sure its in front*/
     border: solid 1px #7986cb;
   }
+  #myDiagramDiv {
+    flex: 1;
+    height: 100%;
+}

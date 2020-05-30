@@ -1,3 +1,11 @@
+// Colors
+const badColor = "#ff9c9c";
+const goodColor = "#acffab";
+const mixedColor = "#fffd99";
+const highlightColor = "#8fa8b5";
+const linkColor = "#424242";
+
+
 function init() {
     var $ = go.GraphObject.make;  // for conciseness in defining templates
 
@@ -14,7 +22,7 @@ function init() {
         $(go.Diagram, "myDiagramDiv",  // the DIV HTML element
             {
                 // Put the diagram contents at the top center of the viewport
-                initialDocumentSpot: go.Spot.TopCenter,
+                initialDocumentSpot: go.Spot.TopLeft,
                 initialViewportSpot: go.Spot.TopCenter,
                 // OR: Scroll to show a particular node, once the layout has determined where that node is
                 // "InitialLayoutCompleted": function(e) {
@@ -53,10 +61,24 @@ function init() {
             new go.Binding("visible", field, function (val) { return val !== undefined; })
         ];
     }
+    function nationColor(nation) {
+        if (nation === "Judah") {
+            return '#e54545'
+        } else if (nation === 'Israel') {
+            return '#679af0'
+        } else {
+            return '#ee00ea'
+        }
+    }
 
     // define Converters to be used for Bindings
-    function theNationFlagConverter(nation) {
-        return "https://www.nwoods.com/images/emojiflags/" + nation + ".png";
+    function RatingReign(rating) {
+        if (rating === "mixed") return mixedColor
+        return rating === "good" ? goodColor : badColor;
+    }
+
+    function getCrown(name) {
+        return "./res/crown.png";
     }
 
     // define the Node template
@@ -70,23 +92,24 @@ function init() {
                 selectionAdornmentTemplate:  // selection adornment to match shape of nodes
                     $(go.Adornment, "Auto",
                         $(go.Shape, "RoundedRectangle", roundedRectangleParams,
-                            { fill: null, stroke: "#7986cb", strokeWidth: 3 }
+                            { fill: null, stroke: "#679af0", strokeWidth: 3 },
                         ),
                         $(go.Placeholder)
                     )  // end Adornment
             },
             $(go.Shape, "RoundedRectangle", roundedRectangleParams,
                 { name: "SHAPE", fill: "#ffffff", strokeWidth: 0 },
-                // bluish if highlighted, white otherwise
-                new go.Binding("fill", "isHighlighted", function (h) { return h ? "#e8eaf6" : "#ffffff"; }).ofObject()
+                new go.Binding("fill", "rating", RatingReign),
+                new go.Binding("stroke", "isHighlighted", function (h) { return h ? highlightColor : false; }).ofObject(),
+                new go.Binding("strokeWidth", "isHighlighted", function (w) { return w ? 5 : 0 }).ofObject(),
             ),
             $(go.Panel, "Vertical",
                 $(go.Panel, "Horizontal",
                     { margin: 8 },
                     $(go.Picture,  // flag image, only visible if a nation is specified
                         { margin: mr8, visible: false, desiredSize: new go.Size(50, 50) },
-                        new go.Binding("source", "nation", theNationFlagConverter),
-                        new go.Binding("visible", "nation", function (nat) { return nat !== undefined; }),
+                        new go.Binding("source", "name", getCrown),
+                        new go.Binding("visible", "name", getCrown),
                     ),
                     $(go.Panel, "Table",
                         $(go.TextBlock,
@@ -98,18 +121,13 @@ function init() {
                             },
                             new go.Binding("text", "name")
                         ),
-                        $(go.TextBlock, textStyle("title"),
-                            {
-                                row: 1, alignment: go.Spot.Left,
-                                maxSize: new go.Size(160, NaN)
-                            },
-                            new go.Binding("text", "title")
-                        ),
+                        // more info arrow - LUKE Added
                         $("PanelExpanderButton", "INFO",
                             { row: 0, column: 1, rowSpan: 2, margin: ml8 }
                         )
                     ),
                 ),
+                // Line divider in the box - Luke added 
                 $(go.Shape, "LineH",
                     {
                         stroke: "rgba(0, 0, 0, .60)", strokeWidth: 1,
@@ -124,34 +142,38 @@ function init() {
                         margin: 8,
                         defaultAlignment: go.Spot.Left,  // thus no need to specify alignment on each element
                     },
-                    $(go.TextBlock, textStyle("headOf"),
-                        new go.Binding("text", "headOf", function (head) { return "Head of: " + head; })
+                    $(go.TextBlock, textStyle("rulerOf"),
+                        new go.Binding("text", "rulerOf", function (head) { return "Ruler of: " + head; })
                     ),
-                    $(go.TextBlock, textStyle("boss"),
-                        new go.Binding("margin", "headOf", function (head) { return mt8; }), // some space above if there is also a headOf value
-                        new go.Binding("text", "boss", function (boss) {
-                            var boss = myDiagram.model.findNodeDataForKey(boss);
-                            if (boss !== null) {
-                                return "Reporting to: " + boss.name;
+                    $(go.TextBlock, textStyle("rulerOf"),
+                        new go.Binding("margin", "rulerOf", function (ruler) { return mt8; }), // some space above if there is also a headOf value
+                        new go.Binding("text", "predecessor", function (predecessor) {
+                            var predecessor = myDiagram.model.findNodeDataForKey(predecessor);
+                            if (predecessor !== null) {
+                                return "Successor to: " + predecessor.name;
                             }
                             return "";
                         })
-                    )
+                    ),
+                    $(go.TextBlock, textStyle("captivity"),
+                        new go.Binding("text", "captivity", function (years) { return "Captivity: " + years })
+                    ),
                 )
             )
         );
 
+
     // define the Link template, a simple orthogonal line
     myDiagram.linkTemplate =
         $(go.Link, go.Link.Orthogonal,
-            { corner: 5, selectable: false },
-            $(go.Shape, { strokeWidth: 3, stroke: "#424242" }));  // dark gray, rounded corner links
+            { corner: 10, selectable: false },
+            $(go.Shape, { strokeWidth: 3, stroke: linkColor }));  // dark gray, rounded corner links
 
     // create the Model with data for the tree, and assign to the Diagram
     myDiagram.model =
         $(go.TreeModel,
             {
-                nodeParentKeyProperty: "boss",  // this property refers to the parent node data
+                nodeParentKeyProperty: "predecessor",  // this property refers to the parent node data
                 nodeDataArray: nodeDataArray
             });
 
@@ -174,9 +196,7 @@ function searchDiagram() {  // called by button
         // create a case insensitive RegExp from what the user typed
         var regex = new RegExp(input.value, "i");
         var results = myDiagram.findNodesByExample({ name: regex },
-            { nation: regex },
-            { title: regex },
-            { headOf: regex });
+            { alternativeName: regex });
         myDiagram.highlightCollection(results);
         // try to center the diagram at the first node that was found
         if (results.count > 0) myDiagram.centerRect(results.first().actualBounds);
