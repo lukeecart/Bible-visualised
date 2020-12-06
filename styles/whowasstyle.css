@@ -12,8 +12,7 @@ main {
 	width: 90vw;
 	margin: 0 auto;
 	padding: 1rem;
-	border: 0.1rem solid black;
-	border-radius: 1rem;
+	max-height: 90vh;
 }
 .person {
 	height: 3rem;
@@ -25,10 +24,24 @@ main {
 .person:nth-child(odd) {
 	background-color: moccasin;
 }
+.event {
+	background-color: aqua;
+	opacity: 0.5;
+	height: 12rem;
+	position: relative;
+	bottom: 12rem;
+}
+.event p {
+	position: absolute;
+	bottom: 0;
+	transform: rotate(-90deg);
+	transform-origin: 0 0;
+	z-index: 2;
+}
 p {
 	position: sticky;
 	left: 0;
-	width: 4rem;
+	width: 4.5rem;
 	text-align: left;
 	display: inline-block;
 }
