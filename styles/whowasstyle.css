@@ -4,44 +4,80 @@
 	box-sizing: border-box;
 	font-size: 10px;
 }
+body {
+	padding: 25px;
+	font-family: sans-serif;
+  }
 main {
 	margin: 1rem 3rem;
 }
-.ganttChartContainer {
-	overflow: auto;
-	width: 90vw;
-	margin: 0 auto;
-	padding: 1rem;
-	max-height: 90vh;
+h1{
+	font-size: 3rem;
 }
 .person {
 	height: 3rem;
-	background-color: beige;
+	background-color: #13519C;
 	margin: 1rem 0;
 	padding: 0.5rem 0.5rem;
 	position: relative;
+	display: block;
+	color: #ebebeb;
 }
 .person:nth-child(odd) {
-	background-color: moccasin;
+	background-color: #487ec0;
 }
-.event {
-	background-color: aqua;
-	opacity: 0.5;
-	height: 12rem;
-	position: relative;
-	bottom: 12rem;
+.bigEvent {
+	background-color: #83def5;
+	height: calc(100% - 20px);
+	opacity: 0.6;
+	position: absolute;
+	top: 1rem;
 }
-.event p {
+.bigEvent p {
 	position: absolute;
 	bottom: 0;
 	transform: rotate(-90deg);
 	transform-origin: 0 0;
 	z-index: 2;
+	font-weight: 600;
 }
-p {
+.person p {
 	position: sticky;
 	left: 0;
-	width: 4.5rem;
+	width: 12rem;
 	text-align: left;
 	display: inline-block;
+	font-size: 1.5rem;
 }
+
+/*EXTRA*/
+
+  
+  .timeline {
+	white-space: nowrap;
+	overflow-x: scroll;
+	padding: 3rem 0 1rem 0;
+	position: relative;
+	border: 1px solid grey;
+	box-shadow:-5px 6px 25px 0px rgba(0,0,0,0.45)
+  }
+  
+  .timebar {
+	height: 1.5rem;
+	background:#eee;
+	width:200%;
+	position: absolute;
+	top: 10px;
+	left: 0;
+	display: block;
+  }
+
+  .timebar p {
+	  display: inline-block;
+	  position: absolute;
+	  top: 0;
+	  border-left: 1px solid #06182E;
+	  padding-left: .6rem;
+	  height: 1.5rem;
+	  font-size: 1.2rem;
+  }
