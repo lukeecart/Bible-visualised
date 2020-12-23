@@ -9,10 +9,12 @@ body {
 	font-family: sans-serif;
   }
 main {
-	margin: 1rem 3rem;
+	margin:0;
 }
 h1{
 	font-size: 3rem;
+	min-width: 22rem;
+	text-align: center;
 }
 .person {
 	height: 3rem;
@@ -32,19 +34,24 @@ h1{
 	opacity: 0.6;
 	position: absolute;
 	top: 1rem;
+	z-index: 999;
 }
 .bigEvent p {
 	position: absolute;
 	bottom: 0;
 	transform: rotate(-90deg);
 	transform-origin: 0 0;
-	z-index: 2;
+	z-index: 999;
 	font-weight: 600;
+}
+#flood{
+	font-weight: bold;
+	color: blue;
 }
 .person p {
 	position: sticky;
 	left: 0;
-	width: 12rem;
+	width: 13.1rem;
 	text-align: left;
 	display: inline-block;
 	font-size: 1.5rem;
@@ -59,25 +66,36 @@ h1{
 	padding: 3rem 0 1rem 0;
 	position: relative;
 	border: 1px solid grey;
-	box-shadow:-5px 6px 25px 0px rgba(0,0,0,0.45)
+	box-shadow:-5px 6px 25px 0px rgba(0,0,0,0.45);
+	width: 85vw;
+	max-width: 200rem;
+	margin: 0 auto;
   }
   
+  #timebar-container{
+	overflow-x: scroll;
+	white-space: nowrap;
+	position: sticky;
+	top: 0px;
+	max-width: 85vw;
+	z-index: 999;
+	margin: 0 auto;
+  }
   .timebar {
+	width:225rem;
 	height: 1.5rem;
 	background:#eee;
-	width:200%;
-	position: absolute;
-	top: 10px;
-	left: 0;
 	display: block;
   }
 
   .timebar p {
 	  display: inline-block;
 	  position: absolute;
-	  top: 0;
 	  border-left: 1px solid #06182E;
-	  padding-left: .6rem;
+	  padding-left: .4rem;
 	  height: 1.5rem;
 	  font-size: 1.2rem;
+  }
+  #timebar-container::-webkit-scrollbar {
+	display: none;
   }
