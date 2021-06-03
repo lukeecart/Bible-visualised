@@ -12,8 +12,9 @@ const urls = [
   '/genealogy.html',
   '/about.html',
   '/projects.html',
-  '/projects',
+  '/whowasalive.html',
   '/res/Logo.svg',
+  '/privacy-policy.html',
 ]
 
 self.skipWaiting()
@@ -36,15 +37,10 @@ self.addEventListener('fetch', (event) => {
           if (!response) {
             return fetch(event.request.url)
           } else {
-            if (response.status === 404) {
-              console.log('404 error missing page')
-            }
-            console.log('found in cache')
             return response
           }
         })
         .catch((error) => {
-          console.log('❌', error)
           return caches.match('/offline.html')
         })
     }),
