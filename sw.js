@@ -1,24 +1,25 @@
-const version = '1.1'
+const version = '1'
 const cacheName = `cache-version-${version}`
 const urls = [
-  '/genealogy.html',
-  '/kings.html',
-  '/projects.html',
   'https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap',
   '/styles/baseStyles.css',
-  '/styles/homeStyle.css',
-  '/styles/cookieConsent.css',
-  '/js/overlay.js',
-  '/res/Logo.svg',
-  '/res/Studying.svg',
-  '/res/Favicon.png',
   '/manifest.json',
-  '/js/peopleCondensed.js',
+  '/res/pwaicon.png',
+  '/offline.html',
+  '/res/Error.svg',
+  '/styles/homeStyle.css',
+  '/res/Studying.svg',
+  '/genealogy.html',
+  '/about.html',
+  '/projects.html',
+  '/projects',
+  '/res/Logo.svg',
 ]
 
 self.skipWaiting()
 
 self.addEventListener('install', (event) => {
+  console.log('Attempting to install service worker and cache static assets')
   event.waitUntil(
     caches.open(cacheName).then((cache) => {
       return cache.addAll(urls)
@@ -27,27 +28,39 @@ self.addEventListener('install', (event) => {
 })
 
 self.addEventListener('fetch', (event) => {
-  console.log('fetching:', event.request.url)
   event.respondWith(
     caches.open(cacheName).then((cache) => {
-      return cache.match(event.request.url).then((response) => {
-        if (response) {
-          console.log('response in cache')
-        }
-        return response || fetch(event.request.url)
-      })
+      return cache
+        .match(event.request.url)
+        .then((response) => {
+          if (!response) {
+            return fetch(event.request.url)
+          } else {
+            if (response.status === 404) {
+              console.log('404 error missing page')
+            }
+            console.log('found in cache')
+            return response
+          }
+        })
+        .catch((error) => {
+          console.log('❌', error)
+          return caches.match('/offline.html')
+        })
     }),
   )
 })
 
 self.addEventListener('activate', (event) => {
+  console.log('Activating new service worker...')
+  const cacheWhitelist = [cacheName]
+
   event.waitUntil(
-    caches.keys().then((cacheName) => {
+    caches.keys().then((cacheNames) => {
       return Promise.all(
-        cacheName.map((name) => {
-          console.log('deleting old cache')
-          if (name !== cacheName) {
-            return caches.delete(name)
+        cacheNames.map((cacheName) => {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName)
           }
         }),
       )
