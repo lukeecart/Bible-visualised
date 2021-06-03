@@ -1,4 +1,4 @@
-const version = '1.0'
+const version = '1.1'
 const cacheName = `cache-version-${version}`
 const urls = [
   '/genealogy.html',
@@ -27,9 +27,13 @@ self.addEventListener('install', (event) => {
 })
 
 self.addEventListener('fetch', (event) => {
+  console.log('fetching:', event.request.url)
   event.respondWith(
     caches.open(cacheName).then((cache) => {
       return cache.match(event.request.url).then((response) => {
+        if (response) {
+          console.log('response in cache')
+        }
         return response || fetch(event.request.url)
       })
     }),
