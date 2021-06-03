@@ -1,0 +1,17 @@
+{
+  "name": "Bible visualised",
+  "short_name": "biblevisuals",
+  "theme_color": "#e7a349",
+  "background_color": "#e7a349",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "./res/pwaicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
