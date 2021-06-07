@@ -1,6 +1,8 @@
-const version = '1'
+const version = '2'
 const cacheName = `cache-version-${version}`
 const urls = [
+  '/',
+  '/projects',
   'https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap',
   '/styles/baseStyles.css',
   '/manifest.json',
