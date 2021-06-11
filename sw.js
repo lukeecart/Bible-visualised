@@ -1,4 +1,4 @@
-const version = '2'
+const version = '3'
 const cacheName = `cache-version-${version}`
 const urls = [
   '/',
@@ -15,15 +15,15 @@ const urls = [
   '/js/peopleCondensed.js',
   '/styles/FamilyTreeStyle.css',
   '/styles/searchBar.css',
+  '/js/index.js',
   '/about',
   '/projects',
   '/styles/projectStyle.css',
   '/res/Project.svg',
   '/res/GenealogyIcon.png',
   '/res/crown.png',
-  '/whowasalive',
   '/res/Logo.svg',
-  '/privacy-policy.html',
+  '/privacy-policy',
 ]
 
 self.skipWaiting()
