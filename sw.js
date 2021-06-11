@@ -2,7 +2,6 @@ const version = '2'
 const cacheName = `cache-version-${version}`
 const urls = [
   '/',
-  '/projects',
   'https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap',
   '/styles/baseStyles.css',
   '/manifest.json',
@@ -11,10 +10,18 @@ const urls = [
   '/res/Error.svg',
   '/styles/homeStyle.css',
   '/res/Studying.svg',
-  '/genealogy.html',
-  '/about.html',
-  '/projects.html',
-  '/whowasalive.html',
+  '/genealogy',
+  '/js/search.js',
+  '/js/peopleCondensed.js',
+  '/styles/FamilyTreeStyle.css',
+  '/styles/searchBar.css',
+  '/about',
+  '/projects',
+  '/styles/projectStyle.css',
+  '/res/Project.svg',
+  '/res/GenealogyIcon.png',
+  '/res/crown.png',
+  '/whowasalive',
   '/res/Logo.svg',
   '/privacy-policy.html',
 ]
@@ -44,7 +51,6 @@ self.addEventListener('fetch', (event) => {
         })
         .catch((error) => {
           console.log(error)
-          window.alert(error.message)
           return caches.match('/offline.html')
         })
     }),
