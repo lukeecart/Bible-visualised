@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-140445912-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'UA-140445912-2')
+    </script>
+
     <meta charset="UTF-8" />
     <meta
       name="description"
@@ -16,13 +31,10 @@
     />
     <link rel="stylesheet" href="./styles/baseStyles.css" />
     <link rel="stylesheet" href="./styles/homeStyle.css" />
-    <link rel="stylesheet" href="./styles/cookieConsent.css" />
     <link rel="icon" sizes="192x192" href="./res/Logo.svg" />
     <link rel="icon" type="image/png" href="./res/Favicon.png" />
     <link rel="manifest" href="manifest.json" />
     <script defer src="./js/overlay.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140445912-2"></script>
-    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-140445912-2'); </script>
   </head>
 
   <body>
@@ -46,27 +58,30 @@
         <h1 class="header-item">Visualise.</h1>
         <h1 class="header-item">Study.</h1>
         <h1 class="header-item">Learn.</h1>
-        <a href="./projects" class="explore"> Explore Projects </a>
+        <a href="./projects" class="explore">Explore Projects</a>
       </div>
       <img src="./res/Studying.svg" alt="Studying" />
     </header>
 
     <main>
       <h2>The Bible Visualised</h2>
-      <h3>
-        Feel free to use some of these resources to learn more about the bible.
-      </h3>
+      <h3>Feel free to use some of these resources to learn more about the bible.</h3>
       <p>
-        During the last year or so I have been wanting to create a visual guide
-        to the bible. I have created this website to showcase some projects such
-        as the <a href=" ./genealogy"> genealogy of Christ</a> and
-        <a href="./kings">the kings of Israel</a> with many more are in the
-        works. The data has been collected from multiple sources.
+        During the last year or so I have been wanting to create a visual guide to the
+        bible. I have created this website to showcase some projects such as the
+        <a href=" ./genealogy">genealogy of Christ</a>
+        and
+        <a href="./kings">the kings of Israel</a>
+        with many more are in the works. The data has been collected from multiple
+        sources.
       </p>
     </main>
     <footer>
       <p>&copy Luke Cartwright 2021</p>
-      <p>Icons by <a target="_blank" rel="noreferrer" href="https://icons8.com">Icons8</a></p>
+      <p>
+        Icons by
+        <a target="_blank" rel="noreferrer" href="https://icons8.com">Icons8</a>
+      </p>
       <p><a target="_self" href="./privacy-policy">Privacy Policy</a></p>
     </footer>
     <script>
