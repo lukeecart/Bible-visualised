@@ -1,106 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-140445912-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Prototype</title>
-	<link rel="stylesheet" href="./styles/whowasstyle.css" />
-</head>
+      gtag('config', 'UA-140445912-2')
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prototype</title>
+    <link rel="stylesheet" href="./styles/whowasstyle.css" />
+  </head>
 
-<body>
-	<header>
-		<nav></nav>
-	</header>
-	<main>
-		<h1>Scroll right to see more >> </h1>
-		<section id="timebar-container">
-			<div class="timebar">
-				<p>0 - Creation</p>
-				<p style="left: 13rem">130</p>
-				<p style="left: 23.5rem">235</p>
-				<p style="left: 32.5rem">325</p>
-				<p style="left: 39.5rem">395</p>
-				<p style="left: 46rem">460</p>
-				<p style="left: 62.2rem">622</p>
-				<p style="left: 68.7rem">687</p>
-				<p style="left: 87.4rem">874</p>
-				<p style="left: 105.6rem">1056</p>
-				<p style="left: 165.6rem; top: 3rem" id="flood">1656- Flood</p>
-				<!--Flood-->
-				<p style="left: 155.8rem">1558</p>
-				<p style="left: 165.8rem">1658</p>
-				<p style="left: 169.3rem">1693</p>
-				<p style="left: 172.7rem">1727</p>
-				<p style="left: 176.1rem">1761</p>
-			</div>
-		</section>
-		<div class="timeline" id="timeline-content">
-			<div class="person" id="adam" style="width: 93rem">
-				<p>Adam - 930 yrs</p>
-			</div>
-			<div class="person" id="seth" style="width: 91.2rem; left: 13rem">
-				<p>Seth - 912 yrs</p>
-			</div>
-			<div class="person" id="enos" style="width: 90.5rem; left: 23.5rem">
-				<p>Enos - 905 yrs</p>
-			</div>
-			<div class="person" id="cainan" style="width: 91rem; left: 32.5rem">
-				<p>Cainan - 910 yrs</p>
-			</div>
-			<div class="person" id="mahaleleel" style="width: 89.5rem; left: 39.5rem">
-				<p>Mahaleleel - 895 yrs</p>
-			</div>
-			<div class="person" id="jared" style="width: 96.2rem; left: 46rem">
-				<p>Jared - 962 yrs</p>
-			</div>
-			<div class="person" id="enoch" style="width: 36.5rem; left: 62.2rem">
-				<p>Enoch - 365 yrs</p>
-			</div>
-			<div class="person" id="methusaleh" style="width: 96.9rem; left: 68.7rem">
-				<p>Methusaleh - 969 yrs</p>
-			</div>
-			<div class="person" id="lamech" style="width: 77.7rem; left: 87.4rem">
-				<p>Lamech - 777 yrs</p>
-			</div>
-			<div class="person" id="noah" style="width: 95rem; left: 105.6rem">
-				<p>Noah - 950 yrs</p>
-			</div>
-			<div class="bigEvent" id="flood" style="width: 1rem; left: 165.6rem">
-				<p>FLOOD</p>
-			</div>
-			<div class="person" id="shem" style="width: 60rem; left: 155.8rem">
-				<p>Shem - 600 yrs</p>
-			</div>
-			<div class="person" id="arphaxad" style="width: 43.8rem; left: 165.8rem">
-				<p>Arphaxad - 438 yrs</p>
-			</div>
-			<div class="person" id="salah" style="width: 43.3rem; left: 169.3rem">
-				<p>Salah - 433 yrs</p>
-			</div>
-			<div class="person" id="eber" style="width: 46.4rem; left: 172.7rem">
-				<p>Eber - 464 yrs</p>
-			</div>
-			<div class="person" id="peleg" style="width: 23.9rem; left: 176.1rem">
-				<p>Peleg - 239 yrs</p>
-			</div>
-			<div class="person" id="reu" style="width: 23.9rem; left: 179.3rem">
-				<p>Reu - yrs</p>
-			</div>
-		</div>
-		<! -- inspiration https://stackoverflow.com/questions/21916615/horizontal-timeline-in-pure-css--!>
-	</main>
-	<footer>
-		<script>
-			var s1 = document.getElementById('timeline-content');
-			var s2 = document.getElementById('timebar-container');
-			function select_scroll_1(e) { s2.scrollLeft = s1.scrollLeft; }
-			function select_scroll_2(e) { s1.scrollLeft = s2.scrollLeft; }
+  <body>
+    <header>
+      <nav></nav>
+    </header>
+    <main>
+      <h1>Scroll right to see more >></h1>
+      <section id="timebar-container">
+        <div class="timebar">
+          <p>0 - Creation</p>
+          <p style="left: 13rem">130</p>
+          <p style="left: 23.5rem">235</p>
+          <p style="left: 32.5rem">325</p>
+          <p style="left: 39.5rem">395</p>
+          <p style="left: 46rem">460</p>
+          <p style="left: 62.2rem">622</p>
+          <p style="left: 68.7rem">687</p>
+          <p style="left: 87.4rem">874</p>
+          <p style="left: 105.6rem">1056</p>
+          <p style="left: 165.6rem; top: 3rem" id="flood">1656- Flood</p>
+          <!--Flood-->
+          <p style="left: 155.8rem">1558</p>
+          <p style="left: 165.8rem">1658</p>
+          <p style="left: 169.3rem">1693</p>
+          <p style="left: 172.7rem">1727</p>
+          <p style="left: 176.1rem">1761</p>
+        </div>
+      </section>
+      <div class="timeline" id="timeline-content">
+        <div class="person" id="adam" style="width: 93rem">
+          <p>Adam - 930 yrs</p>
+        </div>
+        <div class="person" id="seth" style="width: 91.2rem; left: 13rem">
+          <p>Seth - 912 yrs</p>
+        </div>
+        <div class="person" id="enos" style="width: 90.5rem; left: 23.5rem">
+          <p>Enos - 905 yrs</p>
+        </div>
+        <div class="person" id="cainan" style="width: 91rem; left: 32.5rem">
+          <p>Cainan - 910 yrs</p>
+        </div>
+        <div class="person" id="mahaleleel" style="width: 89.5rem; left: 39.5rem">
+          <p>Mahaleleel - 895 yrs</p>
+        </div>
+        <div class="person" id="jared" style="width: 96.2rem; left: 46rem">
+          <p>Jared - 962 yrs</p>
+        </div>
+        <div class="person" id="enoch" style="width: 36.5rem; left: 62.2rem">
+          <p>Enoch - 365 yrs</p>
+        </div>
+        <div class="person" id="methusaleh" style="width: 96.9rem; left: 68.7rem">
+          <p>Methusaleh - 969 yrs</p>
+        </div>
+        <div class="person" id="lamech" style="width: 77.7rem; left: 87.4rem">
+          <p>Lamech - 777 yrs</p>
+        </div>
+        <div class="person" id="noah" style="width: 95rem; left: 105.6rem">
+          <p>Noah - 950 yrs</p>
+        </div>
+        <div class="bigEvent" id="flood" style="width: 1rem; left: 165.6rem">
+          <p>FLOOD</p>
+        </div>
+        <div class="person" id="shem" style="width: 60rem; left: 155.8rem">
+          <p>Shem - 600 yrs</p>
+        </div>
+        <div class="person" id="arphaxad" style="width: 43.8rem; left: 165.8rem">
+          <p>Arphaxad - 438 yrs</p>
+        </div>
+        <div class="person" id="salah" style="width: 43.3rem; left: 169.3rem">
+          <p>Salah - 433 yrs</p>
+        </div>
+        <div class="person" id="eber" style="width: 46.4rem; left: 172.7rem">
+          <p>Eber - 464 yrs</p>
+        </div>
+        <div class="person" id="peleg" style="width: 23.9rem; left: 176.1rem">
+          <p>Peleg - 239 yrs</p>
+        </div>
+        <div class="person" id="reu" style="width: 23.9rem; left: 179.3rem">
+          <p>Reu - yrs</p>
+        </div>
+      </div>
+      <! -- inspiration https://stackoverflow.com/questions/21916615/horizontal-timeline-in-pure-css--!>
+    </main>
+    <footer>
+      <script>
+        var s1 = document.getElementById('timeline-content')
+        var s2 = document.getElementById('timebar-container')
+        function select_scroll_1(e) {
+          s2.scrollLeft = s1.scrollLeft
+        }
+        function select_scroll_2(e) {
+          s1.scrollLeft = s2.scrollLeft
+        }
 
-			s1.addEventListener('scroll', select_scroll_1, false);
-			s2.addEventListener('scroll', select_scroll_2, false);
-		</script>
-	</footer>
-</body>
-
+        s1.addEventListener('scroll', select_scroll_1, false)
+        s2.addEventListener('scroll', select_scroll_2, false)
+      </script>
+    </footer>
+  </body>
 </html>

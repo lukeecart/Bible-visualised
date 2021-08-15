@@ -44,6 +44,7 @@ self.addEventListener('fetch', (event) => {
         .match(event.request.url)
         .then((response) => {
           if (!response) {
+            if (event.request.url.includes('analytics.js')) return
             return fetch(event.request.url)
           } else {
             return response

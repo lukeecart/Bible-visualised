@@ -1,96 +1,156 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-140445912-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
 
-<head>
-	<meta charset="UTF-8">
-	<title>Biblical Genealogy | Bible Visualised</title>
-	<meta name="description"
-		content="A complete genealogy from Adam to Christ and characters throughout the Bible. This is an excellent resource for linking biblical characters." />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="Bible, genealogy, christ, Israel">
-	<script src="https://cdn.jsdelivr.net/npm/gojs@2.1/release/go.js" type="text/javascript"></script>
-	<script defer src="./js/index.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./styles/baseStyles.css">
-	<link rel="stylesheet" href="./styles/FamilyTreeStyle.css">
-	<link rel="stylesheet" href="./styles/searchBar.css">
-	<link rel="icon" type="image/png" href="./res/Favicon.png">
-	<link href="./js/overlay.js">
-</head>
+      gtag('config', 'UA-140445912-2')
+    </script>
+    <meta charset="UTF-8" />
+    <title>Biblical Genealogy | Bible Visualised</title>
+    <meta
+      name="description"
+      content="A complete genealogy from Adam to Christ and characters throughout the Bible. This is an excellent resource for linking biblical characters."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="Bible, genealogy, christ, Israel" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/gojs@2.1/release/go.js"
+      type="text/javascript"
+    ></script>
+    <script defer src="./js/index.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/baseStyles.css" />
+    <link rel="stylesheet" href="./styles/FamilyTreeStyle.css" />
+    <link rel="stylesheet" href="./styles/searchBar.css" />
+    <link rel="icon" type="image/png" href="./res/Favicon.png" />
+    <link href="./js/overlay.js" />
+  </head>
 
-<body onload="init()">
-	<nav>
-		<section class="navbar">
-			<a href="./" class="logo"><img src="./res/Logo.svg" alt="Logo" /></a>
-			<div class="hamburger">
-				<div class="line"></div>
-				<div class="line"></div>
-				<div class="line"></div>
-			</div>
-			<ul class="navbar-nav">
-				<li class="nav-item"><a href="./">Home</a></li>
-				<li class="nav-item"><a href="./about">About</a></li>
-				<li class="nav-item"><a href="./projects">Projects</a></li>
-			</ul>
-		</section>
-		<div class="tools">
-			<div class="resultPanel">
-				<input id="mySearch" type="text" name="person" autocomplete="off"
-					onkeypress="if (event.keyCode === 13) searchDiagram()" placeholder="Search e.g. Moses" />
-				<a id="SearchButton" onclick="searchDiagram()">
-					<svg class="searchIcon" xmlns="http://www.w3.org/2000/svg"
-						xmlns:xlink="http://www.w3.org/1999/xlink" width="16pt" height="16pt" viewBox="0 0 24 24"
-						version="1.1">
-						<g id="surface7733182">
-							<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;"
-								d="M 13.261719 14.867188 L 15.742188 17.347656 C 15.363281 18.070312 15.324219 18.789062 15.722656 19.1875 L 20.25 23.714844 C 20.820312 24.285156 22.0625 23.972656 23.015625 23.015625 C 23.972656 22.058594 24.285156 20.820312 23.714844 20.25 L 19.191406 15.722656 C 18.789062 15.324219 18.070312 15.363281 17.347656 15.738281 L 14.867188 13.261719 Z M 8.5 0 C 3.804688 0 0 3.804688 0 8.5 C 0 13.195312 3.804688 17 8.5 17 C 13.195312 17 17 13.195312 17 8.5 C 17 3.804688 13.195312 0 8.5 0 Z M 8.5 15 C 4.910156 15 2 12.089844 2 8.5 C 2 4.910156 4.910156 2 8.5 2 C 12.089844 2 15 4.910156 15 8.5 C 15 12.089844 12.089844 15 8.5 15 Z M 8.5 15 " />
-						</g>
-					</svg>
-				</a>
-				<div class="resultOutput">
-					<a id="left">
-						<svg width="19" height="30" viewBox="0 0 9 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M2 10L6.5 7.40192L6.5 12.5981L2 10Z" fill="white" />
-						</svg>
-					</a>
-					<p id="numOfResults">No results</p>
-					<a id="right">
-						<svg width="19" height="30" viewBox="0 0 9 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M7 10L2.5 12.5981L2.5 7.40192L7 10Z" fill="white" />
-						</svg>
-					</a>
-				</div>
-			</div>
+  <body onload="init()">
+    <nav>
+      <section class="navbar">
+        <a href="./" class="logo"><img src="./res/Logo.svg" alt="Logo" /></a>
+        <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="./">Home</a></li>
+          <li class="nav-item"><a href="./about">About</a></li>
+          <li class="nav-item"><a href="./projects">Projects</a></li>
+        </ul>
+      </section>
+      <div class="tools">
+        <div class="resultPanel">
+          <input
+            id="mySearch"
+            type="text"
+            name="person"
+            autocomplete="off"
+            onkeypress="if (event.keyCode === 13) searchDiagram()"
+            placeholder="Search e.g. Moses"
+          />
+          <a id="SearchButton" onclick="searchDiagram()">
+            <svg
+              class="searchIcon"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="16pt"
+              height="16pt"
+              viewBox="0 0 24 24"
+              version="1.1"
+            >
+              <g id="surface7733182">
+                <path
+                  style="
+                    stroke: none;
+                    fill-rule: nonzero;
+                    fill: rgb(100%, 100%, 100%);
+                    fill-opacity: 1;
+                  "
+                  d="M 13.261719 14.867188 L 15.742188 17.347656 C 15.363281 18.070312 15.324219 18.789062 15.722656 19.1875 L 20.25 23.714844 C 20.820312 24.285156 22.0625 23.972656 23.015625 23.015625 C 23.972656 22.058594 24.285156 20.820312 23.714844 20.25 L 19.191406 15.722656 C 18.789062 15.324219 18.070312 15.363281 17.347656 15.738281 L 14.867188 13.261719 Z M 8.5 0 C 3.804688 0 0 3.804688 0 8.5 C 0 13.195312 3.804688 17 8.5 17 C 13.195312 17 17 13.195312 17 8.5 C 17 3.804688 13.195312 0 8.5 0 Z M 8.5 15 C 4.910156 15 2 12.089844 2 8.5 C 2 4.910156 4.910156 2 8.5 2 C 12.089844 2 15 4.910156 15 8.5 C 15 12.089844 12.089844 15 8.5 15 Z M 8.5 15 "
+                />
+              </g>
+            </svg>
+          </a>
+          <div class="resultOutput">
+            <a id="left">
+              <svg
+                width="19"
+                height="30"
+                viewBox="0 0 9 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M2 10L6.5 7.40192L6.5 12.5981L2 10Z" fill="white" />
+              </svg>
+            </a>
+            <p id="numOfResults">No results</p>
+            <a id="right">
+              <svg
+                width="19"
+                height="30"
+                viewBox="0 0 9 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M7 10L2.5 12.5981L2.5 7.40192L7 10Z" fill="white" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
 
-		</div>
-	</nav>
+    <main>
+      <div class="buttonsPanel">
+        <a id="toFit">
+          <svg
+            width="20"
+            height="20"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+            fill="none"
+          >
+            <path
+              d="M 4 4 L 4 5 L 4 13 L 6 13 L 6 7.4375 L 11.28125 12.71875 L 12.71875 11.28125 L 7.4375 6 L 13 6 L 13 4 L 5 4 L 4 4 z M 19 4 L 19 6 L 24.5625 6 L 19.28125 11.28125 L 20.71875 12.71875 L 26 7.4375 L 26 13 L 28 13 L 28 5 L 28 4 L 27 4 L 19 4 z M 4 19 L 4 27 L 4 28 L 5 28 L 13 28 L 13 26 L 7.4375 26 L 12.71875 20.71875 L 11.28125 19.28125 L 6 24.5625 L 6 19 L 4 19 z M 26 19 L 26 24.5625 L 20.71875 19.28125 L 19.28125 20.71875 L 24.5625 26 L 19 26 L 19 28 L 27 28 L 28 28 L 28 27 L 28 19 L 26 19 z"
+              fill="white"
+            />
+          </svg>
+          <span class="tooltip">Full Screen</span>
+        </a>
+      </div>
 
-	<main>
-		<div class="buttonsPanel">
-			<a id="toFit">
-				<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-					<path
-						d="M 4 4 L 4 5 L 4 13 L 6 13 L 6 7.4375 L 11.28125 12.71875 L 12.71875 11.28125 L 7.4375 6 L 13 6 L 13 4 L 5 4 L 4 4 z M 19 4 L 19 6 L 24.5625 6 L 19.28125 11.28125 L 20.71875 12.71875 L 26 7.4375 L 26 13 L 28 13 L 28 5 L 28 4 L 27 4 L 19 4 z M 4 19 L 4 27 L 4 28 L 5 28 L 13 28 L 13 26 L 7.4375 26 L 12.71875 20.71875 L 11.28125 19.28125 L 6 24.5625 L 6 19 L 4 19 z M 26 19 L 26 24.5625 L 20.71875 19.28125 L 19.28125 20.71875 L 24.5625 26 L 19 26 L 19 28 L 27 28 L 28 28 L 28 27 L 28 19 L 26 19 z"
-						fill="white" />
-				</svg>
-				<span class="tooltip">Full Screen</span>
-			</a>
-		</div>
-
-		<div class="lds-ellipsis">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-		<div id="myDiagramDiv"></div>
-	</main>
-	<footer>
-		<p>&copy Luke Cartwright 2019 using go.js learn more <a href="https://gojs.net/latest/index.html">here</a> </p>
-		<p><a target="_self" href="./privacy-policy">Privacy Policy</a></p>
-	</footer>
-	<script src="./js/peopleCondensed.js"></script>
-	<script src="./js/search.js"></script>
-</body>
-
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div id="myDiagramDiv"></div>
+    </main>
+    <footer>
+      <p>
+        &copy Luke Cartwright 2019 using go.js learn more
+        <a href="https://gojs.net/latest/index.html">here</a>
+      </p>
+      <p><a target="_self" href="./privacy-policy">Privacy Policy</a></p>
+    </footer>
+    <script src="./js/peopleCondensed.js"></script>
+    <script src="./js/search.js"></script>
+  </body>
 </html>
