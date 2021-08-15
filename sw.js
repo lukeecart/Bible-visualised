@@ -1,4 +1,4 @@
-const version = '3.2'
+const version = '3.4'
 const cacheName = `cache-version-${version}`
 const urls = [
   '/',
