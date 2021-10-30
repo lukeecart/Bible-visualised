@@ -1,4 +1,4 @@
-const version = '3.3'
+const version = '3.4'
 const cacheName = `cache-version-${version}`
 const urls = [
   '/',
@@ -23,6 +23,7 @@ const urls = [
   '/res/GenealogyIcon.png',
   '/res/crown.png',
   '/res/Logo.svg',
+  '/res/bible-image.jpg',
   '/privacy-policy',
 ]
 
