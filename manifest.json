@@ -13,5 +13,23 @@
       "type": "image/png",
       "sizes": "512x512"
     }
+  ],
+  "description": "Visualise the bible and see some interesting visualisations",
+  "screenshots": [
+    {
+      "src": "./res/screenshots/screenshot1.png",
+      "sizes": "733x1467",
+      "type": "image/png"
+    },
+    {
+      "src": "./res/screenshots/screenshot2.png",
+      "sizes": "734x1467",
+      "type": "image/png"
+    },
+    {
+      "src": "./res/screenshots/screenshot3.png",
+      "sizes": "733x1467",
+      "type": "image/png"
+    }
   ]
 }
