@@ -3,6 +3,7 @@ const cacheName = `cache-version-${version}`
 const urls = [
   '/',
   'https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap',
+  'https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js',
   '/styles/baseStyles.css',
   '/manifest.json',
   '/res/pwaicon.png',
