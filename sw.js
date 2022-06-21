@@ -1,9 +1,8 @@
-const version = '3.6'
+const version = '3.7'
 const cacheName = `cache-version-${version}`
 const urls = [
   '/',
   'https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap',
-  'https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js',
   '/styles/baseStyles.css',
   '/manifest.json',
   '/res/pwaicon.png',
@@ -47,6 +46,7 @@ self.addEventListener('fetch', (event) => {
         .then((response) => {
           if (!response) {
             if (event.request.url.includes('analytics.js')) return
+            if (event.request.url.includes('buymeacoffee.com')) return
             return fetch(event.request.url)
           } else {
             return response
