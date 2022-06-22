@@ -17,6 +17,7 @@ const urls = [
   '/styles/searchBar.css',
   '/js/index.js',
   '/about',
+  'https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js',
   '/projects',
   '/styles/projectStyle.css',
   '/res/Project.svg',
@@ -46,9 +47,6 @@ self.addEventListener('fetch', (event) => {
         .then((response) => {
           if (!response) {
             if (event.request.url.includes('analytics.js')) return
-            if (event.request.url.includes('buymeacoffee.com')) {
-              return fetch(event.request.url)
-            }
             return fetch(event.request.url)
           } else {
             return response
